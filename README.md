@@ -30,8 +30,8 @@ This Go program gets top stories from Hacker News and makes podcasts from them u
 1. Get the code:
 
 ```bash
-git clone https://github.com/yourusername/hacker-news-podcast
-cd hacker-news-podcast/go
+git clone https://github.com/mylukin/go-hacker-news
+cd go-hacker-news
 ```
 
 2. Get the tools:
