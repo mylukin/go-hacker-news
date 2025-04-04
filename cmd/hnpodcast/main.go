@@ -52,23 +52,143 @@ func main() {
 	// 初始化日志系统
 	logger.Init(*debug)
 
+	// 获取并显示当前工作目录
+	workDir, err := os.Getwd()
+	if err != nil {
+		logger.Error("获取当前工作目录失败: %v", err)
+	} else {
+		logger.Info("当前工作目录: %s", workDir)
+	}
+
 	// 尝试从多个位置加载.env文件
 	envPaths := []string{
 		".env",       // 当前目录
 		"go/.env",    // go子目录
 		"../go/.env", // 父目录的go子目录
-		filepath.Join(os.Getenv("HOME"), "Projects/hacker-news/go/.env"), // 绝对路径
 	}
 
+	envLoaded := false
 	for _, path := range envPaths {
+		absPath, _ := filepath.Abs(path)
+		logger.Debug("检查环境变量文件: %s (绝对路径: %s)", path, absPath)
+
 		if _, err := os.Stat(path); err == nil {
-			logger.Info("加载环境变量文件: %s", path)
-			err := godotenv.Load(path)
-			if err != nil {
-				logger.Error("加载环境变量文件出错 %s: %v", path, err)
+			logger.Info("找到环境变量文件: %s", path)
+
+			// 检查文件权限
+			fileInfo, statErr := os.Stat(path)
+			if statErr != nil {
+				logger.Error("获取文件信息失败 %s: %v", path, statErr)
 			} else {
-				break
+				fileMode := fileInfo.Mode()
+				logger.Debug("文件权限: %s (%o)", fileMode, fileMode.Perm())
+
+				// 检查是否可读
+				if fileMode.Perm()&0400 == 0 {
+					logger.Warn("文件无读取权限: %s", path)
+				}
 			}
+
+			// 尝试读取文件内容
+			fileContent, readErr := os.ReadFile(path)
+			if readErr != nil {
+				logger.Error("读取文件内容失败 %s: %v", path, readErr)
+			} else {
+				// 安全地显示文件内容摘要（隐藏敏感信息）
+				contentStr := string(fileContent)
+				lines := strings.Split(contentStr, "\n")
+
+				// 检测文件编码问题
+				hasInvalidChar := false
+				for i, line := range lines {
+					for _, r := range line {
+						if r == 0xFFFD || r > 0x10000 {
+							logger.Warn("第%d行含有可能的无效字符或编码问题: %x", i+1, r)
+							hasInvalidChar = true
+						}
+					}
+				}
+
+				if hasInvalidChar {
+					logger.Warn("文件可能有编码问题，建议检查文件编码是否为UTF-8无BOM格式")
+				}
+
+				// 检查文件格式
+				keyFound := false
+				validLineCount := 0
+				for i, line := range lines {
+					line = strings.TrimSpace(line)
+					if line == "" || strings.HasPrefix(line, "#") {
+						continue // 跳过空行和注释
+					}
+
+					if strings.Contains(line, "=") {
+						validLineCount++
+						parts := strings.SplitN(line, "=", 2)
+						key := strings.TrimSpace(parts[0])
+						if key == "OPENAI_API_KEY" {
+							keyFound = true
+							logger.Debug("在.env文件中找到OPENAI_API_KEY（第%d行）", i+1)
+						}
+					} else {
+						logger.Warn("无效的环境变量格式（第%d行）: %s", i+1, line)
+					}
+				}
+
+				if !keyFound {
+					logger.Warn("在.env文件中未找到OPENAI_API_KEY")
+				}
+
+				logger.Debug("环境变量文件分析: 总行数=%d, 有效变量数=%d", len(lines), validLineCount)
+
+				// 记录变量是否成功加载
+				err = godotenv.Load(path)
+				if err != nil {
+					logger.Error("加载环境变量文件出错 %s: %v", path, err)
+				} else {
+					logger.Info("成功加载环境变量文件: %s", path)
+					envLoaded = true
+
+					// 检查关键环境变量是否存在
+					if os.Getenv("OPENAI_API_KEY") != "" {
+						logger.Debug("环境变量OPENAI_API_KEY已加载")
+					} else {
+						logger.Debug("环境变量OPENAI_API_KEY未设置或为空")
+					}
+					break
+				}
+			}
+		} else {
+			logger.Debug("环境变量文件不存在: %s (%v)", path, err)
+		}
+	}
+
+	if !envLoaded {
+		logger.Warn("未成功加载任何环境变量文件，将使用系统环境变量")
+	}
+
+	// 显示所有可能与OpenAI API相关的环境变量
+	checkEnvVars := []string{
+		"OPENAI_API_KEY",
+		"OPENAI_KEY",
+		"OPENAI_SECRET_KEY",
+		"OPENAI_BASE_URL",
+		"OPENAI_MODEL",
+		"HTTP_TIMEOUT",
+	}
+
+	logger.Debug("检查系统环境变量:")
+	for _, varName := range checkEnvVars {
+		val := os.Getenv(varName)
+		if val != "" {
+			// 不显示密钥的具体内容
+			if strings.Contains(strings.ToLower(varName), "key") || strings.Contains(strings.ToLower(varName), "secret") {
+				logger.Debug("- %s: ***已设置***", varName)
+			} else {
+				logger.Debug("- %s: %s", varName, val)
+			}
+		} else {
+			logger.Debug("- %s: 未设置", varName)
 		}
 	}
 
@@ -100,7 +220,7 @@ func main() {
 	}
 
 	// 创建输出目录（如果不存在）
-	err := os.MkdirAll(*outputDir, 0755)
+	err = os.MkdirAll(*outputDir, 0755)
 	if err != nil {
 		logger.Error("创建输出目录失败: %v", err)
 		os.Exit(1)

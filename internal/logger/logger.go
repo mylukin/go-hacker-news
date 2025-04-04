@@ -13,6 +13,7 @@ var (
 	// 日志实例
 	infoLogger  *log.Logger
 	debugLogger *log.Logger
+	warnLogger  *log.Logger
 	errorLogger *log.Logger
 )
 
@@ -26,6 +27,7 @@ func Init(debug bool) {
 	// 创建不同级别的日志记录器
 	infoLogger = log.New(os.Stdout, "[INFO] ", logFlags)
 	debugLogger = log.New(os.Stdout, "[DEBUG] ", logFlags)
+	warnLogger = log.New(os.Stdout, "[WARN] ", logFlags)
 	errorLogger = log.New(os.Stderr, "[ERROR] ", logFlags)
 }
 
@@ -41,6 +43,12 @@ func Debug(format string, args ...interface{}) {
 		msg := fmt.Sprintf(format, args...)
 		debugLogger.Println(msg)
 	}
+}
+
+// Warn 记录警告信息，无论是否在debug模式都会显示
+func Warn(format string, args ...interface{}) {
+	msg := fmt.Sprintf(format, args...)
+	warnLogger.Println(msg)
 }
 
 // Error 记录错误信息，无论是否在debug模式都会显示
