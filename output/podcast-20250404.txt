@@ -1,0 +1,17 @@
+Hello! Welcome to Hacker News Daily Podcast. Today is 2025-04-04. Today we will talk about different stories from the world of technology and science.
+
+First, we have a story about Bill Gates and Microsoft. Bill Gates shared how Microsoft started 50 years ago. He and Paul Allen created a simple program for a computer kit they saw in a magazine. This hard work became the start of Microsoft, a very big and successful company today. Many people shared their thoughts about Microsoft, remembering how it changed the tech world.
+
+Next, we talk about building a simple 8-bit computer. Ben Eater's guide helps people learn how computers work by putting together parts like wires and chips. Some people find this fun and educational, while others think it takes too much time and money.
+
+Now, let's look at how AI tools are changing how people think in Open Source Intelligence. Analysts use AI to help them with their work, but this can be risky. The article warns that relying too much on AI can lead to mistakes. People discuss how important it is to think critically and not trust AI blindly.
+
+We also have a story about a new antibiotic found in garden soil. This antibiotic can kill bacteria that do not die from other medicine. It is important because many bacteria are becoming resistant to current medicine. People talk about the use of antibiotics in farming and how it can create resistant bacteria.
+
+Then, we discuss Gumroad becoming open source. This means people can see and use the code, but only small companies or non-profit groups can use it. Some people feel the license is not truly open source and worry about what happens if a company grows and the license ends.
+
+Next, we talk about Hatchet, a platform to manage tasks for apps. Hatchet uses a type of database to help apps run smoothly. People like Hatchet because it is open-source and flexible, but some wish it had better documentation.
+
+Finally, we explore local-first web development. This method lets you use apps offline and keeps your data safe on your device. Local-first apps are good for places with poor internet, but they can be hard to develop because of data syncing issues.
+
+That's all for today's podcast. Thank you for listening. Goodbye! Please follow our podcast for more stories.
