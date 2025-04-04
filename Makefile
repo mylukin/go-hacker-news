@@ -121,6 +121,7 @@ commit:
 	@date_str=$$(date +"%Y年%m月%d日"); \
 	git add .; \
 	git commit -m "生成$$date_str的播客"; \
+	git push origin main; \
 	echo "Git提交完成!"
 
 # 更新依赖
