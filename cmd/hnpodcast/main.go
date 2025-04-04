@@ -32,25 +32,14 @@ func main() {
 	// 获取默认配置
 	defaultConfig := config.NewDefaultConfig()
 
-	// 解析命令行参数
-	var (
-		date        = flag.String("date", time.Now().Format("2006-01-02"), "Date to fetch stories for (YYYY-MM-DD)")
-		outputDir   = flag.String("output", "output", "Directory to store output files")
-		openAIKey   = flag.String("openai-key", os.Getenv("OPENAI_API_KEY"), "OpenAI API key")
-		openAIURL   = flag.String("openai-url", os.Getenv("OPENAI_BASE_URL"), "OpenAI API base URL")
-		openAIModel = flag.String("openai-model", os.Getenv("OPENAI_MODEL"), "OpenAI model to use")
-		jinaKey     = flag.String("jina-key", os.Getenv("JINA_KEY"), "Jina API key")
-		maxStories  = flag.Int("max-stories", defaultConfig.MaxStories, "Maximum number of stories to process")
-		maxTokens   = flag.Int("max-tokens", defaultConfig.OpenAIMaxTokens, "Maximum number of tokens for OpenAI responses")
-		dev         = flag.Bool("dev", defaultConfig.Development, "Run in development mode")
-		debug       = flag.Bool("debug", false, "Enable debug logging")
-		httpTimeout = flag.Int("timeout", getEnvInt("HTTP_TIMEOUT", defaultConfig.HTTPTimeout), "HTTP request timeout in seconds")
-	)
+	// 先定义debug标志以初始化日志
+	debugFlag := flag.Bool("debug", false, "Enable debug logging")
 
+	// 先解析debug参数
 	flag.Parse()
 
 	// 初始化日志系统
-	logger.Init(*debug)
+	logger.Init(*debugFlag)
 
 	// 获取并显示当前工作目录
 	workDir, err := os.Getwd()
@@ -60,13 +49,15 @@ func main() {
 		logger.Info("当前工作目录: %s", workDir)
 	}
 
-	// 尝试从多个位置加载.env文件
+	// 在解析命令行参数前先加载环境变量
+	// 环境变量文件路径
 	envPaths := []string{
 		".env",       // 当前目录
 		"go/.env",    // go子目录
 		"../go/.env", // 父目录的go子目录
 	}
 
+	// 环境变量加载
 	envLoaded := false
 	for _, path := range envPaths {
 		absPath, _ := filepath.Abs(path)
@@ -89,78 +80,48 @@ func main() {
 				}
 			}
 
-			// 尝试读取文件内容
-			fileContent, readErr := os.ReadFile(path)
-			if readErr != nil {
-				logger.Error("读取文件内容失败 %s: %v", path, readErr)
+			err = godotenv.Load(path)
+			if err != nil {
+				logger.Error("加载环境变量文件出错 %s: %v", path, err)
 			} else {
-				// 安全地显示文件内容摘要（隐藏敏感信息）
-				contentStr := string(fileContent)
-				lines := strings.Split(contentStr, "\n")
+				logger.Info("成功加载环境变量文件: %s", path)
+				envLoaded = true
 
-				// 检测文件编码问题
-				hasInvalidChar := false
-				for i, line := range lines {
-					for _, r := range line {
-						if r == 0xFFFD || r > 0x10000 {
-							logger.Warn("第%d行含有可能的无效字符或编码问题: %x", i+1, r)
-							hasInvalidChar = true
-						}
-					}
-				}
-
-				if hasInvalidChar {
-					logger.Warn("文件可能有编码问题，建议检查文件编码是否为UTF-8无BOM格式")
-				}
-
-				// 检查文件格式
-				keyFound := false
-				validLineCount := 0
-				for i, line := range lines {
-					line = strings.TrimSpace(line)
-					if line == "" || strings.HasPrefix(line, "#") {
-						continue // 跳过空行和注释
-					}
-
-					if strings.Contains(line, "=") {
-						validLineCount++
-						parts := strings.SplitN(line, "=", 2)
-						key := strings.TrimSpace(parts[0])
-						if key == "OPENAI_API_KEY" {
-							keyFound = true
-							logger.Debug("在.env文件中找到OPENAI_API_KEY（第%d行）", i+1)
-						}
-					} else {
-						logger.Warn("无效的环境变量格式（第%d行）: %s", i+1, line)
-					}
-				}
-
-				if !keyFound {
-					logger.Warn("在.env文件中未找到OPENAI_API_KEY")
-				}
-
-				logger.Debug("环境变量文件分析: 总行数=%d, 有效变量数=%d", len(lines), validLineCount)
-
-				// 记录变量是否成功加载
-				err = godotenv.Load(path)
-				if err != nil {
-					logger.Error("加载环境变量文件出错 %s: %v", path, err)
+				// 检查关键环境变量是否存在
+				if apiKey := os.Getenv("OPENAI_API_KEY"); apiKey != "" {
+					logger.Debug("环境变量OPENAI_API_KEY已加载: %s", apiKey[:4]+"...")
 				} else {
-					logger.Info("成功加载环境变量文件: %s", path)
-					envLoaded = true
-
-					// 检查关键环境变量是否存在
-					if os.Getenv("OPENAI_API_KEY") != "" {
-						logger.Debug("环境变量OPENAI_API_KEY已加载")
-					} else {
-						logger.Debug("环境变量OPENAI_API_KEY未设置或为空")
-					}
-					break
+					logger.Warn("环境变量OPENAI_API_KEY未设置或为空")
 				}
+				break
 			}
 		} else {
 			logger.Debug("环境变量文件不存在: %s (%v)", path, err)
 		}
+	}
+
+	// 重置命令行参数以便重新解析
+	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+
+	// 所有其他命令行参数
+	date := flag.String("date", time.Now().Format("2006-01-02"), "Date to fetch stories for (YYYY-MM-DD)")
+	outputDir := flag.String("output", "output", "Directory to store output files")
+	openAIKey := flag.String("openai-key", os.Getenv("OPENAI_API_KEY"), "OpenAI API key")
+	openAIURL := flag.String("openai-url", os.Getenv("OPENAI_BASE_URL"), "OpenAI API base URL")
+	openAIModel := flag.String("openai-model", os.Getenv("OPENAI_MODEL"), "OpenAI model to use")
+	jinaKey := flag.String("jina-key", os.Getenv("JINA_KEY"), "Jina API key")
+	maxStories := flag.Int("max-stories", defaultConfig.MaxStories, "Maximum number of stories to process")
+	maxTokens := flag.Int("max-tokens", defaultConfig.OpenAIMaxTokens, "Maximum number of tokens for OpenAI responses")
+	dev := flag.Bool("dev", defaultConfig.Development, "Run in development mode")
+	debug := flag.Bool("debug", *debugFlag, "Enable debug logging") // 保持与先前值一致
+	httpTimeout := flag.Int("timeout", getEnvInt("HTTP_TIMEOUT", defaultConfig.HTTPTimeout), "HTTP request timeout in seconds")
+
+	// 重新解析所有命令行参数
+	flag.Parse()
+
+	// 更新日志级别（如果需要）
+	if *debug {
+		logger.SetDebugMode(true)
 	}
 
 	if !envLoaded {
@@ -211,6 +172,24 @@ func main() {
 
 	if cfg.OpenAIBaseURL == "" {
 		cfg.OpenAIBaseURL = defaultConfig.OpenAIBaseURL
+	}
+
+	// 记录OpenAI API密钥来源
+	if *openAIKey == "" {
+		logger.Debug("命令行未提供OpenAI API密钥")
+	} else if *openAIKey == os.Getenv("OPENAI_API_KEY") {
+		logger.Debug("使用环境变量中的OpenAI API密钥")
+	} else {
+		logger.Debug("使用命令行参数提供的OpenAI API密钥")
+	}
+
+	// 尝试直接从环境变量获取密钥（以防flag解析发生在env加载之前）
+	if cfg.OpenAIAPIKey == "" {
+		directKey := os.Getenv("OPENAI_API_KEY")
+		if directKey != "" {
+			logger.Info("从环境变量直接加载OpenAI API密钥")
+			cfg.OpenAIAPIKey = directKey
+		}
 	}
 
 	// 验证必需的字段

@@ -31,6 +31,14 @@ func Init(debug bool) {
 	errorLogger = log.New(os.Stderr, "[ERROR] ", logFlags)
 }
 
+// SetDebugMode 动态设置调试模式
+func SetDebugMode(debug bool) {
+	debugMode = debug
+	if debug {
+		Debug("调试日志已启用")
+	}
+}
+
 // Info 记录重要的信息性日志，无论是否在debug模式都会显示
 func Info(format string, args ...interface{}) {
 	msg := fmt.Sprintf(format, args...)
