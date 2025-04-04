@@ -2,14 +2,22 @@
 
 # 变量定义
 APP_NAME = hnpodcast
-BUILD_DIR = ./build
+BUILD_DIR_NAME = dist
+BUILD_DIR = ./$(BUILD_DIR_NAME)
 OUTPUT_DIR = ./output
 MAIN_PATH = ./cmd/hnpodcast
 GO_FILES = $(shell find . -name "*.go" -type f)
 
 # 默认目标
 .PHONY: all
-all: clean build
+all: help
+
+# 构建和清理的组合目标
+.PHONY: rebuild
+rebuild:
+	@echo "清理并重新构建..."
+	$(MAKE) clean
+	$(MAKE) build
 
 # 创建必要的目录
 $(BUILD_DIR):
@@ -18,11 +26,16 @@ $(BUILD_DIR):
 $(OUTPUT_DIR):
 	mkdir -p $(OUTPUT_DIR)
 
+# 确保目录存在的目标
+.PHONY: ensure_dirs
+ensure_dirs:
+	@mkdir -p $(BUILD_DIR)
+
 # 编译程序
 .PHONY: build
-build: $(BUILD_DIR)
+build: ensure_dirs
 	@echo "编译 $(APP_NAME)..."
-	go build -o $(BUILD_DIR)/$(APP_NAME) $(MAIN_PATH)
+	go build -o "$(BUILD_DIR)/$(APP_NAME)" $(MAIN_PATH)
 	@echo "完成! 可执行文件位于: $(BUILD_DIR)/$(APP_NAME)"
 
 # 安装程序到GOPATH/bin
@@ -36,24 +49,24 @@ install:
 .PHONY: run
 run: $(OUTPUT_DIR)
 	@echo "运行 $(APP_NAME)..."
-	@if [ -f $(BUILD_DIR)/$(APP_NAME) ]; then \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR); \
+	@if [ -f "$(BUILD_DIR)/$(APP_NAME)" ]; then \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)"; \
 	else \
 		echo "先构建程序..."; \
 		$(MAKE) build; \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR); \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)"; \
 	fi
 
 # 以调试模式运行
 .PHONY: debug
 debug: $(OUTPUT_DIR)
 	@echo "以调试模式运行 $(APP_NAME)..."
-	@if [ -f $(BUILD_DIR)/$(APP_NAME) ]; then \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR) -debug; \
+	@if [ -f "$(BUILD_DIR)/$(APP_NAME)" ]; then \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)" -debug; \
 	else \
 		echo "先构建程序..."; \
 		$(MAKE) build; \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR) -debug; \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)" -debug; \
 	fi
 
 # 获取指定日期的故事
@@ -61,24 +74,24 @@ debug: $(OUTPUT_DIR)
 run-date: $(OUTPUT_DIR)
 	@echo "请输入日期 (格式: YYYY-MM-DD):"
 	@read date; \
-	if [ -f $(BUILD_DIR)/$(APP_NAME) ]; then \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR) -date $$date; \
+	if [ -f "$(BUILD_DIR)/$(APP_NAME)" ]; then \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)" -date $$date; \
 	else \
 		echo "先构建程序..."; \
 		$(MAKE) build; \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR) -date $$date; \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)" -date $$date; \
 	fi
 
 # 开发模式 (获取较少故事，提高速度)
 .PHONY: dev
 dev: $(OUTPUT_DIR)
 	@echo "以开发模式运行 $(APP_NAME)..."
-	@if [ -f $(BUILD_DIR)/$(APP_NAME) ]; then \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR) -dev -max-stories 3; \
+	@if [ -f "$(BUILD_DIR)/$(APP_NAME)" ]; then \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)" -dev -max-stories 3; \
 	else \
 		echo "先构建程序..."; \
 		$(MAKE) build; \
-		$(BUILD_DIR)/$(APP_NAME) -output $(OUTPUT_DIR) -dev -max-stories 3; \
+		"$(BUILD_DIR)/$(APP_NAME)" -output "$(OUTPUT_DIR)" -dev -max-stories 3; \
 	fi
 
 # 运行测试
@@ -114,6 +127,7 @@ deps:
 help:
 	@echo "Hacker News 播客生成器 - 可用命令:"
 	@echo "  make build       - 编译程序"
+	@echo "  make rebuild     - 清理并重新编译程序"
 	@echo "  make install     - 安装程序到GOPATH/bin"
 	@echo "  make run         - 运行程序 (获取今天的故事)"
 	@echo "  make run-date    - 运行程序 (手动输入日期)"
