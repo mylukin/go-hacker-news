@@ -114,6 +114,15 @@ clean-output:
 	rm -rf $(OUTPUT_DIR)
 	@echo "清理完成!"
 
+# Git提交
+.PHONY: commit
+commit:
+	@echo "提交更改到Git..."
+	@date_str=$$(date +"%Y年%m月%d日"); \
+	git add .; \
+	git commit -m "生成$$date_str的播客"; \
+	echo "Git提交完成!"
+
 # 更新依赖
 .PHONY: deps
 deps:
@@ -136,5 +145,6 @@ help:
 	@echo "  make test        - 运行测试"
 	@echo "  make clean       - 清理构建文件"
 	@echo "  make clean-output - 清理输出文件"
+	@echo "  make commit      - 提交更改到Git"
 	@echo "  make deps        - 更新依赖"
 	@echo "  make help        - 显示此帮助信息" 
