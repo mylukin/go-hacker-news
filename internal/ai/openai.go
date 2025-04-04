@@ -17,7 +17,7 @@ type OpenAIClient struct {
 }
 
 // NewOpenAIClient creates a new OpenAI client
-func NewOpenAIClient(apiKey, baseURL, model string, maxTokens int) *OpenAIClient {
+func NewOpenAIClient(apiKey, baseURL, model string, maxTokens int, timeoutSeconds int) *OpenAIClient {
 	config := openai.DefaultConfig(apiKey)
 
 	if baseURL != "" {
@@ -25,7 +25,7 @@ func NewOpenAIClient(apiKey, baseURL, model string, maxTokens int) *OpenAIClient
 	}
 
 	// Create a client with reasonable timeout
-	config.HTTPClient.Timeout = 60 * time.Second
+	config.HTTPClient.Timeout = time.Duration(timeoutSeconds) * time.Second
 
 	client := openai.NewClientWithConfig(config)
 

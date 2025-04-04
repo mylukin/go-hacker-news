@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -16,6 +17,16 @@ import (
 	"github.com/lukin/hacker-news/go/internal/logger"
 	"github.com/lukin/hacker-news/go/internal/prompt"
 )
+
+// getEnvInt 从环境变量中读取整数值，如果不存在或无法解析则返回默认值
+func getEnvInt(key string, defaultVal int) int {
+	if value, exists := os.LookupEnv(key); exists {
+		if intVal, err := strconv.Atoi(value); err == nil {
+			return intVal
+		}
+	}
+	return defaultVal
+}
 
 func main() {
 	// 获取默认配置
@@ -33,6 +44,7 @@ func main() {
 		maxTokens   = flag.Int("max-tokens", defaultConfig.OpenAIMaxTokens, "Maximum number of tokens for OpenAI responses")
 		dev         = flag.Bool("dev", defaultConfig.Development, "Run in development mode")
 		debug       = flag.Bool("debug", false, "Enable debug logging")
+		httpTimeout = flag.Int("timeout", getEnvInt("HTTP_TIMEOUT", defaultConfig.HTTPTimeout), "HTTP request timeout in seconds")
 	)
 
 	flag.Parse()
@@ -69,6 +81,7 @@ func main() {
 		JinaAPIKey:      *jinaKey,
 		MaxStories:      *maxStories,
 		Development:     *dev,
+		HTTPTimeout:     *httpTimeout,
 	}
 
 	// 设置默认值（如果未提供）
@@ -99,6 +112,7 @@ func main() {
 		cfg.OpenAIBaseURL,
 		cfg.OpenAIModel,
 		cfg.OpenAIMaxTokens,
+		cfg.HTTPTimeout,
 	)
 
 	// 开始工作流
@@ -108,7 +122,7 @@ func main() {
 
 	// 获取热门故事
 	storyTimer := logger.NewTimer("获取热门故事")
-	stories, err := fetcher.GetHackerNewsTopStories(*date, cfg.JinaAPIKey)
+	stories, err := fetcher.GetHackerNewsTopStories(*date, cfg.JinaAPIKey, cfg.HTTPTimeout)
 	storyTimer.Stop()
 
 	if err != nil {
@@ -127,16 +141,24 @@ func main() {
 	}
 
 	logger.Info("找到 %d 个故事", len(stories))
+	logger.Debug("HTTP超时设置为 %d 秒", cfg.HTTPTimeout)
+
+	// 格式化日期字符串，用于文件名
+	dateFormatted := strings.ReplaceAll(*date, "-", "")
 
 	// 处理每个故事
 	var allStories []string
+	var allStoriesMarkdown strings.Builder
+
+	// 添加Markdown标题和日期
+	allStoriesMarkdown.WriteString(fmt.Sprintf("# Hacker News 故事摘要 - %s\n\n", *date))
 
 	for i, story := range stories {
 		logger.Info("[%d/%d] 处理故事: %s", i+1, len(stories), story.Title)
 
 		// 获取故事内容和评论
 		contentTimer := logger.NewTimer("获取故事内容: " + story.Title)
-		storyContent, err := fetcher.GetHackerNewsStory(story, cfg.OpenAIMaxTokens, cfg.JinaAPIKey)
+		storyContent, err := fetcher.GetHackerNewsStory(story, cfg.OpenAIMaxTokens, cfg.JinaAPIKey, cfg.HTTPTimeout)
 		contentTimer.Stop()
 
 		if err != nil {
@@ -160,6 +182,12 @@ func main() {
 		logger.Info("成功总结故事: %s", story.Title)
 		allStories = append(allStories, text)
 
+		// 添加故事到Markdown文件
+		allStoriesMarkdown.WriteString(fmt.Sprintf("## %s\n\n", story.Title))
+		allStoriesMarkdown.WriteString(fmt.Sprintf("- 原文链接: [%s](%s)\n", story.Title, story.URL))
+		allStoriesMarkdown.WriteString(fmt.Sprintf("- HN链接: [Hacker News讨论](%s)\n\n", story.HackerNewsURL))
+		allStoriesMarkdown.WriteString(text + "\n\n---\n\n")
+
 		// 在开发模式下让AI休息一下
 		if cfg.Development {
 			time.Sleep(2 * time.Second)
@@ -171,7 +199,7 @@ func main() {
 	// 创建播客内容
 	logger.Info("创建播客内容")
 	podcastTimer := logger.NewTimer("生成播客内容")
-	podcastSystemPrompt := prompt.SummarizePodcastPrompt(config.PodcastTitle)
+	podcastSystemPrompt := prompt.SummarizePodcastPrompt(config.PodcastTitle, *date)
 	podcastContent, err := openAIClient.GenerateText(podcastSystemPrompt, strings.Join(allStories, "\n\n---\n\n"))
 	podcastTimer.Stop()
 
@@ -192,23 +220,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	// 创建博客内容
-	logger.Info("创建博客内容")
-	blogTimer := logger.NewTimer("生成博客内容")
-	blogSystemPrompt := prompt.BlogPrompt()
-	blogContent, err := openAIClient.GenerateText(blogSystemPrompt, strings.Join(allStories, "\n\n---\n\n"))
-	blogTimer.Stop()
-
-	if err != nil {
-		logger.Error("创建博客内容失败: %v", err)
-		os.Exit(1)
-	}
+	// 将介绍内容插入到Markdown文件的标题下方
+	markdownWithIntro := strings.Builder{}
+	markdownWithIntro.WriteString(fmt.Sprintf("# Hacker News 故事摘要 - %s\n\n", *date))
+	markdownWithIntro.WriteString("## 今日概述\n\n")
+	markdownWithIntro.WriteString(introContent)
+	markdownWithIntro.WriteString("\n\n---\n\n")
+	markdownWithIntro.WriteString(allStoriesMarkdown.String()[len(fmt.Sprintf("# Hacker News 故事摘要 - %s\n\n", *date)):])
 
 	// 保存内容到文件
-	dateFormatted := strings.ReplaceAll(*date, "-", "")
 	podcastFilename := filepath.Join(*outputDir, fmt.Sprintf("podcast-%s.txt", dateFormatted))
-	introFilename := filepath.Join(*outputDir, fmt.Sprintf("intro-%s.txt", dateFormatted))
-	blogFilename := filepath.Join(*outputDir, fmt.Sprintf("blog-%s.md", dateFormatted))
+	markdownFilename := filepath.Join(*outputDir, fmt.Sprintf("stories-%s.md", dateFormatted))
 
 	err = os.WriteFile(podcastFilename, []byte(podcastContent), 0644)
 	if err != nil {
@@ -216,21 +238,15 @@ func main() {
 		os.Exit(1)
 	}
 
-	err = os.WriteFile(introFilename, []byte(introContent), 0644)
+	// 保存Markdown文件
+	err = os.WriteFile(markdownFilename, []byte(markdownWithIntro.String()), 0644)
 	if err != nil {
-		logger.Error("写入简介内容失败: %v", err)
-		os.Exit(1)
-	}
-
-	err = os.WriteFile(blogFilename, []byte(blogContent), 0644)
-	if err != nil {
-		logger.Error("写入博客内容失败: %v", err)
+		logger.Error("写入故事摘要失败: %v", err)
 		os.Exit(1)
 	}
 
 	logger.Info("成功为 %s 生成播客内容", *date)
 	logger.Info("文件保存到:")
 	logger.Info("  - 播客: %s", podcastFilename)
-	logger.Info("  - 简介: %s", introFilename)
-	logger.Info("  - 博客: %s", blogFilename)
+	logger.Info("  - 故事摘要: %s", markdownFilename)
 }

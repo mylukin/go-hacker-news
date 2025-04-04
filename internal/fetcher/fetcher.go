@@ -20,13 +20,13 @@ type Story struct {
 }
 
 // GetHackerNewsTopStories fetches the top stories from Hacker News for a given date
-func GetHackerNewsTopStories(today string, jinaKey string) ([]Story, error) {
+func GetHackerNewsTopStories(today string, jinaKey string, timeoutSeconds int) ([]Story, error) {
 	url := fmt.Sprintf("https://news.ycombinator.com/front?day=%s", today)
 
 	logger.Info("获取 %s 的热门故事，来源: %s", today, url)
 
 	// Create client with timeout
-	client := req.C().SetTimeout(30 * time.Second)
+	client := req.C().SetTimeout(time.Duration(timeoutSeconds) * time.Second)
 
 	// Setup request
 	request := client.R().
@@ -124,9 +124,9 @@ func CleanHTML(html string) string {
 }
 
 // GetHackerNewsStory fetches the content of a story and its comments
-func GetHackerNewsStory(story Story, maxTokens int, jinaKey string) (string, error) {
+func GetHackerNewsStory(story Story, maxTokens int, jinaKey string, timeoutSeconds int) (string, error) {
 	// Create client with timeout
-	client := req.C().SetTimeout(30 * time.Second)
+	client := req.C().SetTimeout(time.Duration(timeoutSeconds) * time.Second)
 
 	// Create request with common headers
 	reqHeaders := map[string]string{

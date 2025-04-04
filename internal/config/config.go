@@ -12,6 +12,9 @@ const KeepDays = 30
 // DefaultOpenAIBaseURL is the default URL for OpenAI API
 const DefaultOpenAIBaseURL = "https://api.openai.com/v1"
 
+// DefaultHTTPTimeout is the default timeout for HTTP requests in seconds
+const DefaultHTTPTimeout = 60
+
 // Config holds application configuration
 type Config struct {
 	OpenAIAPIKey    string
@@ -21,6 +24,7 @@ type Config struct {
 	JinaAPIKey      string
 	MaxStories      int
 	Development     bool
+	HTTPTimeout     int // HTTP请求超时时间（秒）
 }
 
 // NewDefaultConfig creates a new config with default values
@@ -31,5 +35,6 @@ func NewDefaultConfig() *Config {
 		OpenAIMaxTokens: 16384,
 		MaxStories:      10,
 		Development:     false,
+		HTTPTimeout:     DefaultHTTPTimeout,
 	}
 }
