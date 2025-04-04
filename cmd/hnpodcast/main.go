@@ -32,14 +32,24 @@ func main() {
 	// 获取默认配置
 	defaultConfig := config.NewDefaultConfig()
 
-	// 先定义debug标志以初始化日志
-	debugFlag := flag.Bool("debug", false, "Enable debug logging")
+	// 定义所有命令行参数，但暂不解析
+	debug := flag.Bool("debug", false, "Enable debug logging")
+	date := flag.String("date", time.Now().Format("2006-01-02"), "Date to fetch stories for (YYYY-MM-DD)")
+	outputDir := flag.String("output", "output", "Directory to store output files")
+	openAIKey := flag.String("openai-key", "", "OpenAI API key")
+	openAIURL := flag.String("openai-url", "", "OpenAI API base URL")
+	openAIModel := flag.String("openai-model", "", "OpenAI model to use")
+	jinaKey := flag.String("jina-key", "", "Jina API key")
+	maxStories := flag.Int("max-stories", defaultConfig.MaxStories, "Maximum number of stories to process")
+	maxTokens := flag.Int("max-tokens", defaultConfig.OpenAIMaxTokens, "Maximum number of tokens for OpenAI responses")
+	dev := flag.Bool("dev", defaultConfig.Development, "Run in development mode")
+	httpTimeout := flag.Int("timeout", defaultConfig.HTTPTimeout, "HTTP request timeout in seconds")
 
-	// 先解析debug参数
+	// 先解析所有命令行参数
 	flag.Parse()
 
 	// 初始化日志系统
-	logger.Init(*debugFlag)
+	logger.Init(*debug)
 
 	// 获取并显示当前工作目录
 	workDir, err := os.Getwd()
@@ -49,7 +59,6 @@ func main() {
 		logger.Info("当前工作目录: %s", workDir)
 	}
 
-	// 在解析命令行参数前先加载环境变量
 	// 环境变量文件路径
 	envPaths := []string{
 		".env",       // 当前目录
@@ -89,7 +98,11 @@ func main() {
 
 				// 检查关键环境变量是否存在
 				if apiKey := os.Getenv("OPENAI_API_KEY"); apiKey != "" {
-					logger.Debug("环境变量OPENAI_API_KEY已加载: %s", apiKey[:4]+"...")
+					if len(apiKey) > 4 {
+						logger.Debug("环境变量OPENAI_API_KEY已加载: %s", apiKey[:4]+"...")
+					} else {
+						logger.Debug("环境变量OPENAI_API_KEY已加载(值过短)")
+					}
 				} else {
 					logger.Warn("环境变量OPENAI_API_KEY未设置或为空")
 				}
@@ -98,30 +111,6 @@ func main() {
 		} else {
 			logger.Debug("环境变量文件不存在: %s (%v)", path, err)
 		}
-	}
-
-	// 重置命令行参数以便重新解析
-	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
-
-	// 所有其他命令行参数
-	date := flag.String("date", time.Now().Format("2006-01-02"), "Date to fetch stories for (YYYY-MM-DD)")
-	outputDir := flag.String("output", "output", "Directory to store output files")
-	openAIKey := flag.String("openai-key", os.Getenv("OPENAI_API_KEY"), "OpenAI API key")
-	openAIURL := flag.String("openai-url", os.Getenv("OPENAI_BASE_URL"), "OpenAI API base URL")
-	openAIModel := flag.String("openai-model", os.Getenv("OPENAI_MODEL"), "OpenAI model to use")
-	jinaKey := flag.String("jina-key", os.Getenv("JINA_KEY"), "Jina API key")
-	maxStories := flag.Int("max-stories", defaultConfig.MaxStories, "Maximum number of stories to process")
-	maxTokens := flag.Int("max-tokens", defaultConfig.OpenAIMaxTokens, "Maximum number of tokens for OpenAI responses")
-	dev := flag.Bool("dev", defaultConfig.Development, "Run in development mode")
-	debug := flag.Bool("debug", *debugFlag, "Enable debug logging") // 保持与先前值一致
-	httpTimeout := flag.Int("timeout", getEnvInt("HTTP_TIMEOUT", defaultConfig.HTTPTimeout), "HTTP request timeout in seconds")
-
-	// 重新解析所有命令行参数
-	flag.Parse()
-
-	// 更新日志级别（如果需要）
-	if *debug {
-		logger.SetDebugMode(true)
 	}
 
 	if !envLoaded {
@@ -151,6 +140,23 @@ func main() {
 		} else {
 			logger.Debug("- %s: 未设置", varName)
 		}
+	}
+
+	// 使用从环境变量获取的值更新命令行参数的默认值
+	if *openAIKey == "" {
+		*openAIKey = os.Getenv("OPENAI_API_KEY")
+	}
+	if *openAIURL == "" {
+		*openAIURL = os.Getenv("OPENAI_BASE_URL")
+	}
+	if *openAIModel == "" {
+		*openAIModel = os.Getenv("OPENAI_MODEL")
+	}
+	if *jinaKey == "" {
+		*jinaKey = os.Getenv("JINA_KEY")
+	}
+	if envTimeout := getEnvInt("HTTP_TIMEOUT", defaultConfig.HTTPTimeout); *httpTimeout == defaultConfig.HTTPTimeout {
+		*httpTimeout = envTimeout
 	}
 
 	// 创建配置
