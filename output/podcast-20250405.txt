@@ -1,0 +1,15 @@
+Hello! Welcome to Hacker News Daily Podcast. Today is 2025-04-05. Today we will talk about interesting things people are discussing on Hacker News.
+
+First, let's talk about side projects. Side projects are small, fun tasks people do outside their main job. Many people find joy and peace in these projects. When life feels tough, creating something new can make people happy. Some people say stress can stop creativity, so it's important to take care of oneself first. Others say side projects help them learn new skills and are fun, even if not perfect.
+
+Next, we have an article about a tool called Coolify. Coolify helps people put their apps online by themselves. It is open-source, which means anyone can see and change the code. Some people find it hard to use, while others say it makes managing apps easier. Coolify gives people full control and can save money compared to other services.
+
+Now, let's talk about a book that teaches electricity and electronics. The book is called "Teach Yourself Electricity and Electronics." It is good for people learning by themselves. The book uses simple language and step-by-step lessons. Some people shared other resources they also find helpful, like videos and other books.
+
+Next, we have news about AT&T stopping an email-to-text service on June 17, 2025. This service lets you send an email that shows up as a text on a phone. Some people think stopping this service is good because it reduces spam. Others worry that small businesses will have trouble without it. People suggest other tools and services that can replace this email-to-text feature.
+
+Another interesting project is OpenVertebrate. This project shares 3D scans of animals with backbones. These scans show animal skeletons and some soft tissues. People can see and print these 3D images. Some people find it hard to turn scans into 3D models, but they are excited about the project.
+
+Lastly, we talk about a new plan to increase timber production in U.S. forests. The plan wants to use more U.S. timber and manage forests to stop wildfires. Some people worry this harms the environment, but others believe it will help the economy and create jobs.
+
+That's all for today. Thank you for listening to Hacker News Daily Podcast. Please follow our podcast for more updates. Goodbye!
