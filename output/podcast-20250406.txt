@@ -1,0 +1,17 @@
+Hello! Welcome to Hacker News Daily Podcast. Today is 2025-04-06. Today we will talk about some interesting topics from Hacker News.
+
+First, let's talk about Apple's systems. Apple uses something called Darwin OS and XNU Kernel in its computers. These are important for running the software on Apple devices. They are based on older systems like Mach and BSD. These help manage the computer's memory and tasks. Some people wonder if Apple should have used Linux, which is another system, because it is open-source. Open-source means anyone can see and change the code. But Apple had reasons to use what they chose.
+
+Next, we have a new way to make machine learning models safer, called "model-signing." This checks if a model is safe and has not been changed. A tool called Sigstore helps do this. It makes sure the model is from a trusted source. Some people think this is important, while others are not sure if it will be used a lot.
+
+We also have a story about a person trying to understand the software inside a children's reading device. The device helps kids read books with a pen that plays sounds. The person wants to learn more about how it works and maybe add new sounds to it.
+
+Then, there is news about five nurses in a hospital who all have brain tumors. The hospital checked for dangers but found nothing. The tumors are not cancerous, and the hospital says there is no risk. But the nurses' union wants to look into it more.
+
+Another article explains how to fix problems that stop a Windows computer from sleeping. The writer used tools to find which program was causing the problem. People shared their own experiences and said sleep problems can be hard to solve.
+
+Next, we talk about ADHD and a method called body doubling. This helps people with ADHD focus by having another person nearby. The other person does not help with the work but just stays present. Many people find this helpful, and some use online tools to work with others.
+
+Lastly, we have an article about an app called Owl. It helps people remember things better with a method called spaced repetition. This means looking at information at different times to help remember it better. The app lets users create flashcards and has an AI tutor to help.
+
+Thank you for listening to Hacker News Daily Podcast. Please follow us for more news and stories. Goodbye!
