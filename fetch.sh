@@ -19,5 +19,5 @@ YESTERDAY=$(date -d "yesterday" +"%Y-%m-%d")
 ./dist/hnpodcast -date "$YESTERDAY"
 
 # 执行make commit并将输出重定向到日志文件
-make commit > /var/log/hacker-news.log 2>&1
+make commit
 
