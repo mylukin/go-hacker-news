@@ -1,0 +1,23 @@
+Hello! Welcome to Hacker News Daily Podcast. Today is 2025-04-07. Today we will talk about some interesting topics from Hacker News.
+
+First, we talk about banning billboards in cities. The article says new buildings need city approval, but billboards do not. Billboards can be big and bright, making cities look less nice. The author thinks cities would be better without billboards. People have different thoughts. Some agree and say ads are like tricks. Others think ads help small companies. Some mention that places like Vermont have already banned billboards.
+
+Next, we talk about Glamorous Toolkit. This is a special tool for programmers. It helps them understand their code by using small, custom tools. This idea is called Moldable Development. Some people find the toolkit interesting but hard to understand. Others compare it to another tool for Python. Many think the toolkit needs better explanations.
+
+Now, let's discuss a problem at the NIH (National Institutes of Health). Some top scientists were fired because of a mistake with a computer. Later, they were asked to come back. People think the problem is not just a computer mistake. They believe the firings were not well thought out. Some say the explanation of a "coding error" is just an excuse.
+
+Then, we have a story about data centers. The article says most data we store is not useful and harms the environment. This includes photos, videos, and emails. People have different views. Some think we keep data because we might need it. Others say deleting data is hard, so we keep it all. Some argue storing data is not very harmful to the environment.
+
+Next, we talk about a new way to make soft edges and shadows in vector graphics using the Rive Renderer. The old way was slow, but Rive's new method is faster and better. It keeps everything in vector form, so it can be any size without losing quality. People discuss how to make blurs faster and share some ideas.
+
+Now, let's hear about airline safety videos. They are becoming like big movies with famous people. Airlines spend a lot of money to make them fun. Some people enjoy these videos, while others think they are too long. Some prefer simple safety videos without actors.
+
+Next, we discuss SciOp, a website for sharing files from erased US government websites. These files are important and available as torrents, which help share big files. People talk about the software they use to share these files. They give tips for using programs on devices like Raspberry Pi.
+
+Then, we talk about genetic programming. This is a way to solve problems by letting computer programs evolve, like in nature. The author shares their first experience with this using Common Lisp. People think genetic programming is useful for some problems but not very popular now.
+
+Next, we talk about Lotus Domino, an old software platform. It is used for building web apps. The writer explains its history and useful features. People have different views. Some think Domino is still good, but its old user interface is a problem. Others have moved to new technologies.
+
+Finally, we discuss the AEgIS project. They made a special camera using smartphone sensors. This camera can see antimatter in detail. People are interested in how the camera works and want to learn more about the project.
+
+That's all for today's podcast. Thank you for listening! Please follow our podcast for more interesting news every day. Goodbye!
