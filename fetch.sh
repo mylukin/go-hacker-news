@@ -29,21 +29,24 @@ DATE_FORMATTED=$(date -d "yesterday" +"%Y%m%d")
 # 从title文件读取标题
 TITLE=$(cat "output/title-${DATE_FORMATTED}.txt")
 if [ -z "$TITLE" ]; then
-    TITLE="${YESTERDAY} 使用AI自动总结"
+    TITLE="${YESTERDAY} HN精选：科技热点探讨"
 fi
 
 # 读取DICTOGO_API_TOKEN从.env文件
 DICTOGO_API_TOKEN=${DICTOGO_API_TOKEN:-$OPENAI_API_KEY}
 
+# 读取播客内容并转义双引号
+PODCAST_CONTENT=$(cat "output/podcast-${DATE_FORMATTED}.txt" | sed 's/"/\\"/g')
+
 # 发送到dictogo.app API
 echo "正在发送播客内容到dictogo.app API..."
-curl -X POST "https://api.dictogo.app/openapi/v1/article/create" \
+curl -v -X POST "https://api.dictogo.app/openapi/v1/article/create" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer ${DICTOGO_API_TOKEN}" \
 -d @- << EOF
 {
   "title": "${TITLE}",
-  "content": "$(cat "output/podcast-${DATE_FORMATTED}.txt")",
+  "content": "${PODCAST_CONTENT}",
   "toLanguage": "zh-hans",
   "albumId": "67f0d7d531701d15ea5397ad"
 }
