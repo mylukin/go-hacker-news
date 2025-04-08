@@ -28,6 +28,50 @@ func getEnvInt(key string, defaultVal int) int {
 	return defaultVal
 }
 
+// 生成标题，使用AI对播客内容进行总结
+func generateTitle(date string, openAIClient *ai.OpenAIClient, podcastContent string) string {
+	// 从YYYY-MM-DD格式转换为年.月.日格式
+	t, err := time.Parse("2006-01-02", date)
+	if err != nil {
+		logger.Error("解析日期失败: %v", err)
+		return fmt.Sprintf("%s HN精选：科技热点回顾", date)
+	}
+
+	// 格式化为年.月.日作为前缀
+	datePrefix := fmt.Sprintf("%d.%d.%d", t.Year(), t.Month(), t.Day())
+
+	// 使用AI生成标题(英文提示词)
+	titleSystemPrompt := "You are a title generation expert. Create a concise and engaging Chinese title for the following podcast content. The title should be no more than 15 Chinese characters, should not include dates, and should avoid generic words like '总结' (summary) or '回顾' (review). Focus on the key tech topics or trends mentioned in the content."
+	aiTitle, err := openAIClient.GenerateText(titleSystemPrompt, podcastContent)
+	if err != nil {
+		logger.Error("生成AI标题失败: %v", err)
+		return fmt.Sprintf("%s HN精选：科技热点探讨", datePrefix)
+	}
+
+	// 清理生成的标题（去除可能的引号、多余空格、标点等）
+	aiTitle = strings.TrimSpace(aiTitle)
+	aiTitle = strings.Trim(aiTitle, "\"'.,，。")
+
+	// 如果AI生成的标题为空或过长，使用默认标题
+	if aiTitle == "" || len([]rune(aiTitle)) > 20 {
+		// 为Hacker News播客生成更合适的默认标题
+		defaultTitles := []string{
+			"HN精选：科技创新前沿",
+			"科技热点：程序员视角",
+			"硅谷观察：技术与创业",
+			"开发者热议：科技动态",
+			"技术前沿：HN每日精选",
+		}
+
+		// 基于日期选择一个默认标题，确保每天都有所不同
+		defaultTitle := defaultTitles[t.Day()%len(defaultTitles)]
+		return fmt.Sprintf("%s %s", datePrefix, defaultTitle)
+	}
+
+	// 组合日期和AI生成的标题
+	return fmt.Sprintf("%s %s", datePrefix, aiTitle)
+}
+
 func main() {
 	// 获取默认配置
 	defaultConfig := config.NewDefaultConfig()
@@ -336,6 +380,7 @@ func main() {
 	// 保存内容到文件
 	podcastFilename := filepath.Join(*outputDir, fmt.Sprintf("podcast-%s.txt", dateFormatted))
 	markdownFilename := filepath.Join(*outputDir, fmt.Sprintf("stories-%s.md", dateFormatted))
+	titleFilename := filepath.Join(*outputDir, fmt.Sprintf("title-%s.txt", dateFormatted))
 
 	err = os.WriteFile(podcastFilename, []byte(podcastContent), 0644)
 	if err != nil {
@@ -350,8 +395,17 @@ func main() {
 		os.Exit(1)
 	}
 
+	// 生成并保存标题
+	title := generateTitle(*date, openAIClient, podcastContent)
+	err = os.WriteFile(titleFilename, []byte(title), 0644)
+	if err != nil {
+		logger.Error("写入标题失败: %v", err)
+		os.Exit(1)
+	}
+
 	logger.Info("成功为 %s 生成播客内容", *date)
 	logger.Info("文件保存到:")
 	logger.Info("  - 播客: %s", podcastFilename)
 	logger.Info("  - 故事摘要: %s", markdownFilename)
+	logger.Info("  - 标题: %s", titleFilename)
 }
