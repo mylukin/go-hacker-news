@@ -9,13 +9,13 @@ elif [ -f ~/.profile ]; then
     source ~/.profile
 fi
 
+# 切换到脚本所在目录
+cd "$(dirname "$0")"
+
 # 加载.env文件
 if [ -f .env ]; then
     export $(grep -v '^#' .env | xargs)
 fi
-
-# 切换到脚本所在目录
-cd "$(dirname "$0")"
 
 # 计算前一天的日期，格式为YYYY-MM-DD
 YESTERDAY=$(date -d "yesterday" +"%Y-%m-%d")
