@@ -21,7 +21,7 @@ fi
 YESTERDAY=$(date -d "yesterday" +"%Y-%m-%d")
 
 # 运行hnpodcast，使用前一天的日期
-# ./dist/hnpodcast -date "$YESTERDAY"
+./dist/hnpodcast -date "$YESTERDAY"
 
 # 获取格式化后的日期字符串用于文件名
 DATE_FORMATTED=$(date -d "yesterday" +"%Y%m%d")
