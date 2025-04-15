@@ -1,0 +1,23 @@
+Hello everyone, this is the 2025-04-15 episode of Hacker News Daily Podcast. Today, we dive into a range of fascinating topics for tech enthusiasts and developers. Let's get started.
+
+First up, we explore how One-Time Passwords (OTPs) work, focusing on HOTP and TOTP. These temporary, single-use codes enhance security by changing with each use or over time, unlike traditional passwords. HOTP uses a counter, increasing with each OTP request, while TOTP relies on the current time, usually updating every 30 seconds. The article explains these systems using cryptographic functions like HMAC to ensure security, and offers resources for testing OTP implementations. In the comments, users discuss the differences between OTPs used in password recovery versus HOTP/TOTP, and the potential use of public key cryptography for added security, despite practical challenges.
+
+Next, we turn our gaze to the stars with a discussion on the surprising number of supernovae discovered each year. Once rare, now thousands are observed annually thanks to advancements in telescopic technology. The naming system for these cosmic events continues to evolve, reflecting their increasing frequency. Commenters express awe at our growing ability to observe the universe, and joke about the expanding naming conventions. The conversation also touches on the implications of these discoveries for our understanding of the cosmos.
+
+Moving on, we discuss JSLinux, a project by Fabrice Bellard that lets users run Linux and other operating systems directly in their web browsers. This impressive feat requires no plugins or installations, making it accessible for everyone. Users praise Bellard's contributions to tech and discuss the evolution of JSLinux's terminal emulator, xterm.js. Some consider building faster versions using WebAssembly, while others reflect on the joy of creating side projects.
+
+In a different realm, the article on reverse-engineering an ESP32-based smart home air purifier reveals how the author gained local control over the device, integrating it with Home Assistant. The author intercepted network traffic and analyzed the firmware to bypass cloud dependency. Commenters discuss the importance of local control for smart home devices, security concerns, and the balance between convenience and privacy.
+
+Next, we explore Tomb Engine, an open-source project for creating custom Tomb Raider adventures. This engine allows users to design levels easily, with a community forming around it. The comments highlight licensing issues, with some confusion over the MIT license's terms. Users share nostalgic memories of Tomb Raider, reflecting on the evolution of game development.
+
+In a light-hearted segment, we discuss "How to win an argument with a toddler," which suggests that true arguments involve openness to changing one's mind. Commenters debate the merits of emotional validation versus logical problem-solving, underscoring the importance of understanding perspectives.
+
+We then introduce two new language models, Teuken-7B-Base and Teuken-7B-Instruct, supporting all 24 EU languages. They aim to address the English dominance in language models. Commenters discuss translation strategies, language switching issues, and the models' potential to enhance multilingual understanding.
+
+In business news, Temu, a popular online shopping platform, has stopped its Google Shopping ads in the U.S., leading to a significant drop in its App Store ranking. The decision is linked to rising tariffs on Chinese imports. Commenters discuss the impact on product quality, local business protection, and environmental concerns.
+
+Finally, we cover a whistleblower's claim that the Department of Government Efficiency may have accessed sensitive data from the National Labor Relations Board. Commenters express concern over government transparency and cybersecurity, while discussing the vital role of whistleblowers.
+
+To close, we explore mrge.io, an AI code review platform aimed at streamlining the code review process. Users share concerns about AI's context understanding and security, but appreciate its potential to improve code quality and efficiency.
+
+That's all for today's episode. Thank you for joining us, and we hope you found these stories intriguing and informative. Tune in tomorrow for more insights and discussions on Hacker News Daily Podcast. Have a great day!
