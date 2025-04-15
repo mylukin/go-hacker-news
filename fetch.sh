@@ -21,7 +21,7 @@ fi
 YESTERDAY=$(date -d "yesterday" +"%Y-%m-%d")
 
 # 运行hnpodcast，使用前一天的日期
-./dist/hnpodcast -date "$YESTERDAY"
+# ./dist/hnpodcast -date "$YESTERDAY"
 
 # 获取格式化后的日期字符串用于文件名
 DATE_FORMATTED=$(date -d "yesterday" +"%Y%m%d")
@@ -36,11 +36,11 @@ fi
 DICTOGO_API_TOKEN=${DICTOGO_API_TOKEN:-$OPENAI_API_KEY}
 
 # 读取播客内容并转义双引号
-PODCAST_CONTENT=$(cat "output/podcast-${DATE_FORMATTED}.txt" | sed 's/"/\\"/g')
+PODCAST_CONTENT=$(cat "output/podcast-${DATE_FORMATTED}.txt" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
 
 # 发送到dictogo.app API
 echo "正在发送播客内容到dictogo.app API..."
-curl -v -X POST "https://api.dictogo.app/openapi/v1/article/create111" \
+curl -v -X POST "https://api.dictogo.app/openapi/v1/article/create" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer ${DICTOGO_API_TOKEN}" \
 -d @- << EOF
