@@ -1,0 +1,19 @@
+Hello everyone, this is the 2025-04-23 episode of Hacker News Daily Podcast. Today, we delve into some exciting developments in the tech world, starting with a proposal from an Apple engineer to add visionOS support to the Godot engine. This proposal aims to enable Godot games to run on Apple's Vision Pro headset, focusing on a native visionOS platform, Swift file compilation, and a Vision Pro VR plugin. The engineer notes similarities to Godot's iOS platform, which allows code reuse, but faces challenges like testing export templates and requiring real hardware due to simulator limits. While the technical contribution is appreciated, debates continue over the commercial viability of Vision Pro amidst its high price and limited use cases.
+
+Next, we explore SolidJS, a JavaScript library known for its fast, reactive UI building without a virtual DOM. SolidJS is praised for its simplicity, speed, and performance, using JSX for components and offering features like SSR and async rendering. Despite its smaller ecosystem, many find it a promising alternative to frameworks like React and Vue, especially for its efficient update model and TypeScript support.
+
+We then turn to 42 open-source projects funded by the NGI Zero Commons Fund, aiming to create a more open internet. Projects range from solar-powered motherboards to privacy-friendly educational tools. In the EU's bid to reduce reliance on US tech, commenters discuss whether these small projects can make a significant impact or if a European equivalent to companies like Microsoft is needed.
+
+In another fascinating story, a 20-year-old bug in GTA San Andreas resurfaced with a Windows 11 update, affecting the Skimmer airplane. The issue stems from uninitialized variables, highlighting backward compatibility challenges. This has sparked discussions on programming practices and the importance of robust debugging tools.
+
+We also introduce MinC, a Unix emulator for Windows based on OpenBSD, designed to teach Linux without virtualization. Users praise its ease of installation and integration with tools like Visual Studio Code, though some question its practicality compared to WSL.
+
+The article "CSS Hell" presents a game testing CSS skills through challenging puzzles, offering a playful yet frustrating experience for many. While some appreciate the test of knowledge, others find the lack of feedback and restrictions challenging.
+
+Moving on, the "Gruen Transfer" concept is being applied to the internet, with websites using confusing designs to increase user engagement. Commenters share frustrations with platforms like Amazon and YouTube, noting a trend of prioritizing metrics over user experience.
+
+Lastly, we discuss the confusion around the term "pixel," used for both length and area, and how different contexts interpret it. This complexity is evident in fields like image processing, where pixels are crucial but vary in representation.
+
+We conclude with Scrimba's new interactive Node.js video tutorials, which allow learners to edit and run code directly in videos. This approach is lauded for enhancing engagement and potentially broadening support for more programming languages.
+
+That's all for today's episode. Thank you for tuning in to Hacker News Daily Podcast. Stay curious and keep exploring the tech world.
