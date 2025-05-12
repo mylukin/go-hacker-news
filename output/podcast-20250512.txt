@@ -1,0 +1,21 @@
+Hello everyone, this is the 2025-05-12 episode of Hacker News Daily Podcast. Today, we explore stories of innovation, ethical debates, and community-driven projects in the tech world.
+
+First, we dive into a fascinating narrative about a developer who spent his vacation in Seoul tackling the challenge of disabling Windows Defender using the Windows Security Center (WSC) API. This project was a follow-up to his previous tool, "no-defender," which had been removed due to legal issues. During his vacation, a friend requested a cleaner version of the tool, which led the developer to engage in reverse engineering and test his code remotely. The Hacker News community shared various insights, with some suggesting alternative methods to disable Windows Defender, while others argued over the security implications and user autonomy.
+
+Next, we discuss INTELLECT-2, a new AI model boasting 32 billion parameters and utilizing globally distributed reinforcement learning. This decentralized approach, involving frameworks like PRIME-RL and SHARDCAST, marks a departure from traditional centralized methods. The model showed improvements in reasoning tasks, sparking discussions on its technical merits and the potential for cryptocurrency-related applications.
+
+Moving on, we look at Scraperr, a self-hosted web scraping tool available on GitHub. Designed for user control, it uses technologies like Selenium and supports XPath selectors. The Hacker News community debated ethical scraping practices, the challenges of aggressive scrapers, and shared experiences with various scraping tools.
+
+We also explore a minimal LSP client created in Clojure, highlighting the integration of text editors with language servers using only 200 lines of code. The community discussed Clojure's role in game development, the code's readability, and the trade-offs involved in using Clojure for such projects.
+
+In another story, we cover the Continuous Thought Machine (CTM), an AI model that mimics human neural timing. By focusing on sequential thought and neural synchronization, CTM aims to create more adaptable AI systems. Discussions centered on the novelty of this approach and its alignment with existing neuroscience research.
+
+We then delve into the pervasive influence of AI in daily life, raising concerns about individuals' ability to opt-out and the potential biases in AI systems. Commenters expressed views on AI's role in decision-making, the need for transparency, and the societal impact of AI technologies.
+
+Next, we explore the Absolute Zero Reasoner (AZR), which trains AI using self-generated tasks without human-curated data. While showing promise in code and math tasks, the project sparked debate over its practical applications and marketing claims.
+
+We also discuss embeddings in technical writing, a technology that could revolutionize how writers find text connections. The community debated the clarity of the article and shared potential applications for embeddings in text management.
+
+Lastly, we talk about CoMaps, a community-led fork of Organic Maps. Driven by governance concerns, this project aims for transparency and community involvement. The community voiced support for the fork, hoping it leads to a better user experience and governance model.
+
+That wraps up today's episode. Thank you for tuning in to Hacker News Daily Podcast. We hope you found these stories insightful and engaging. Join us again tomorrow for more updates from the tech world.
