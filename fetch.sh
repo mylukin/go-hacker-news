@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # 加载用户环境变量，防止crontab执行时的环境变量问题
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
@@ -17,19 +16,31 @@ if [ -f .env ]; then
     export $(grep -v '^#' .env | xargs)
 fi
 
-# 计算前一天的日期，格式为YYYY-MM-DD
-YESTERDAY=$(date -d "yesterday" +"%Y-%m-%d")
+# 检查是否提供了日期参数，未提供则使用昨天的日期
+if [ -z "$1" ]; then
+    TARGET_DATE=$(date -d "yesterday" +"%Y-%m-%d")
+    echo "未提供日期参数，使用昨天的日期: $TARGET_DATE"
+else
+    # 验证日期格式是否为YYYY-MM-DD
+    if [[ $1 =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+        TARGET_DATE=$1
+        echo "使用指定日期: $TARGET_DATE"
+    else
+        echo "错误: 日期格式不正确，请使用YYYY-MM-DD格式"
+        exit 1
+    fi
+fi
 
-# 运行hnpodcast，使用前一天的日期
-./dist/hnpodcast -date "$YESTERDAY"
+# 运行hnpodcast，使用目标日期
+./dist/hnpodcast -date "$TARGET_DATE"
 
 # 获取格式化后的日期字符串用于文件名
-DATE_FORMATTED=$(date -d "yesterday" +"%Y%m%d")
+DATE_FORMATTED=$(date -d "$TARGET_DATE" +"%Y%m%d")
 
 # 从title文件读取标题
 TITLE=$(cat "output/title-${DATE_FORMATTED}.txt")
 if [ -z "$TITLE" ]; then
-    TITLE="${YESTERDAY} HN精选：科技热点探讨"
+    TITLE="${TARGET_DATE} HN精选：科技热点探讨"
 fi
 
 # 读取DICTOGO_API_TOKEN从.env文件
@@ -51,9 +62,7 @@ curl -v -X POST "https://api.dictogo.app/openapi/v1/article/create" \
   "albumId": "67f0d7d531701d15ea5397ad"
 }
 EOF
-
 echo -e "\n文章已发送到dictogo.app"
 
 # 执行make commit并将输出重定向到日志文件
 make commit
-
