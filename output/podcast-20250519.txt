@@ -1,0 +1,17 @@
+Hello everyone, this is the 2025-05-19 episode of Hacker News Daily Podcast. Today, we delve into fascinating stories ranging from historical journeys and ancient solar events to modern programming innovations and tech conferences.
+
+First, we travel back in time to 1862, when Japanese samurai first visited Europe after 240 years of isolation. These travelers were captivated by new technologies like the telegraph and photography. They visited Nadar, a renowned photographer famous for his portraits of figures like Charles Baudelaire and Victor Hugo. Nadar's ability to capture the essence of his subjects was highlighted in the article, ending with his poignant quote about the difference between seeing and merely looking. In the comments, users discussed the stern expressions in old photos, cultural differences in friendliness, and debated whether intelligence can be captured in a photograph.
+
+Next, we explore a study uncovering the strongest solar event recorded, dating back to 12,350 BC. This ancient solar storm was 500 times more intense than any recent events, identified through tree rings showing radiocarbon spikes. The potential impact of a similar event today sparked discussions about risks to power grids and satellites, with comments balancing humor and concerns about technological dependence.
+
+Moving forward to programming, Goboscript emerges as a new text-based language compiling into Scratch projects. Designed for easier project creation and code management, Goboscript offers features like a powerful macro system. The Hacker News community appreciated its potential to bridge Scratch and traditional programming languages, discussing its benefits for educational transitions and collaborative workflows.
+
+We then shift to tech.tickets, a platform for finding tech conferences and ticket discounts. Featuring a global event calendar, the site garnered mixed feedback for its performance and navigation issues. Users discussed the importance of filters and automation for better user experience, while appreciating the concept's potential.
+
+In another story, Naeem Nur's journey with side projects since 2009 highlights the importance of passion over profit. Using familiar tech stacks, Naeem's projects range from active to sold and dead. The community resonated with his emphasis on personal interest, sharing experiences of burnout and the joy of creation.
+
+The "Llama from scratch" article guides readers through implementing a scaled-down Llama model, focusing on small, manageable steps. This iterative approach was well-received, with comments appreciating the clear explanations and practical tips for working with machine learning papers.
+
+Lastly, Zod 4 is released, offering a faster, more efficient TypeScript validation library with new features and performance enhancements. While some users welcomed the improvements, others voiced concerns about the migration process due to changes in import paths. Despite these challenges, the update is seen as a significant advancement in data validation.
+
+That's all for today's episode. Thank you for joining us on Hacker News Daily Podcast. Stay curious and keep innovating!
