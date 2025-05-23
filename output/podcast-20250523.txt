@@ -1,0 +1,21 @@
+Hello everyone, this is the 2025-05-23 episode of Hacker News Daily Podcast. Today, we have a diverse array of topics for our tech and software development enthusiasts.
+
+We begin with a deep dive into the current state and future of Flatpak, a widely adopted application-packaging format for Linux. Flatpak simplifies software distribution and enhances security by sandboxing applications using technologies like namespaces and control groups. Despite its success, development has slowed, with a backlog of unreviewed code changes, as key contributors have left. Flatpak's permissions system, which restricts app access to system resources, is seen as an area needing more granular control. The community is divided on the best path forward, with some calling for more support from Red Hat. Alternatives like AppImage are also discussed, highlighting the ongoing debate about app distribution on Linux.
+
+Next, we explore Modvion's innovation in building modular wooden wind turbine towers, the tallest of their kind. These towers are easier and cheaper to transport and are carbon-negative, storing more carbon than they emit. While some users are skeptical about the environmental benefits compared to steel, others see the potential in overcoming logistic challenges with modular designs. The discussion extends to the feasibility and recyclability of wooden structures versus traditional materials.
+
+We then revisit a piece of tech history with the Bellmac-32 microprocessor from Bell Labs, a 32-bit processor developed in the late 1970s using CMOS technology. Despite not achieving commercial success, it influenced today's tech landscape by showcasing the potential of CMOS. Comments reflect admiration for Bell Labs' achievements and curiosity about the business decisions that led to the Bellmac-32 not succeeding commercially.
+
+In recent news, Microsoft announced a new PostgreSQL extension for VS Code, enhancing database management with AI-assisted features and integration with GitHub Copilot. Users have mixed reactions, praising the integration with VS Code but expressing concerns about licensing issues and proprietary aspects. Comparisons to other tools like DataGrip and pgAdmin are frequent, with users awaiting further developments.
+
+The episode continues with an introduction to the Airport extension for DuckDB, which supports Arrow Flight, enabling DuckDB to handle non-tabular data from external APIs. Comments highlight the potential of DuckDB to evolve with support for new data formats like Iceberg, while others appreciate the extension's flexibility in data handling.
+
+We also discuss KumoRFM, a new AI model designed for relational data, which can make predictions without specific training. Its innovative approach involves translating databases into a graph format, offering versatility and efficiency. The comments reflect excitement about the model's potential applications, from predicting business outcomes to fraud detection.
+
+Shifting gears, we explore an article about bird migration and the role of mitochondria in enabling long flights. The conversation extends to the potential implications if humans had similar mitochondria, with a mix of curiosity and humor in the comments.
+
+We remember Alasdair MacIntyre, a renowned philosopher who recently passed away. Known for his work in moral philosophy, his book "After Virtue" revived virtue ethics and influenced many. Comments reflect appreciation for his contributions and debate his views on ethics and morality.
+
+Finally, we discuss the Depth Anything V2 model used on satellite images of Bangkok. This depth estimation model, developed by TikTok and the University of Hong Kong, helps visualize building heights. Potential applications range from urban planning to emergency planning, with comments noting the model's niche uses and possibilities for expanding 3D models.
+
+That's all for today. Thanks for tuning in to Hacker News Daily Podcast. Join us again tomorrow for more insights and discussions from the tech world.
