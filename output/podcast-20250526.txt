@@ -1,0 +1,23 @@
+Hello everyone, this is the 2025-05-26 episode of Hacker News Daily Podcast. Today, we dive into several intriguing stories from the tech world.
+
+First up, we explore a personal privacy breach involving Google's Business Profile. An author was surprised to find their personal phone number shared online by Google, leading to unwanted tech support calls for their volunteer software, Three Rings. The number was originally given to Google for identity verification, not public display. The author managed to remove the number but was left frustrated, unable to understand how it was shared. In the comments, some suggested the number might have been shared through other Google services, while others criticized Google for not having better privacy controls.
+
+Next, we discuss the Open Source Society University (OSSU), a free, self-taught computer science curriculum. Offering courses from top universities like Harvard and MIT, OSSU provides a comprehensive CS education without the usual general education requirements. Comments on Hacker News revealed a debate about the necessity of a traditional CS degree versus a self-taught path. While some praised OSSU's accessibility and quality, others pointed out the challenges of self-learning, such as the need for discipline and the lack of formal recognition.
+
+In legal news, a German court sentenced former Volkswagen executives for their roles in the Dieselgate scandal. This marks the end of a lengthy trial involving illegal software used to cheat emissions tests. Hacker News users expressed satisfaction with the ruling but questioned whether it will deter future corporate misconduct. Discussions also touched on the broader issue of accountability for rich individuals and corporations.
+
+In tech tools, we look at "Jjui," a text user interface for the Jujutsu version control system. Designed to be user-friendly, it offers features like auto-complete for revsets and tools for managing revision details. Users praised its stability and interactivity, though some noted challenges like the lack of GitHub PR sync for stacked diffs.
+
+We also cover BAGEL, an open-source multimodal model for handling text and images, similar to GPT-4o and Gemini 2.0. BAGEL can generate realistic images and video frames, trained with large-scale data. While users are excited about its capabilities, there are concerns about its performance in real-world tests and hopes for future improvements, especially in audio integration.
+
+In a surprising discovery, Penn Engineers found a new material that can pull water from the air without energy. This material captures moisture and releases it as droplets, showing potential for use in dry areas and cooling devices. While promising, users are cautious about its practicality beyond the lab.
+
+Security issues were found in GitLab Duo, an AI coding tool. Researchers discovered vulnerabilities that allowed attackers to trick the AI into leaking private source code. GitLab has since fixed these issues, but users remain cautious about AI's role in development, fearing similar vulnerabilities.
+
+Next, we explore using GitHub issues as a note-taking platform. Supporting Markdown and multimedia uploads, it offers a free, unlimited notebook experience. Users shared various uses from project management to organizing household moves, though some debated privacy concerns and the merits of Markdown.
+
+We also delve into the integration of AI assistants with stock trading tools using MCP (Model-Context Protocol). While MCP shows potential for automating trading tasks, users expressed concerns about its security and reliability, debating whether automation truly adds value.
+
+Finally, we discuss a new garbage collector method in the Guile programming language. The system, called Nofl, faces challenges with memory fragmentation. Users shared technical insights and concerns about the complexity and resource use, hoping for future improvements in performance and efficiency.
+
+That's all for today's episode. Thanks for tuning in to Hacker News Daily Podcast, where we bring you the latest stories and discussions from the tech community. Join us again tomorrow for more insights and updates.
