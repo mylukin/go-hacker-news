@@ -1,0 +1,23 @@
+Hello everyone, this is the 2025-05-30 episode of Hacker News Daily Podcast. Today, we dive into a mix of stories ranging from a rediscovered film to breakthroughs in AI and tech innovations.
+
+First, let's talk about the unexpected discovery of a long-lost Jerry Lewis film, "The Day the Clown Cried." This controversial film, shot in 1972, was never released due to its sensitive subject about a clown in a Nazi camp. A Swedish actor, Hans Crispin, claims to have found a full version and hopes to sell it to a serious producer for preservation. The film's history and potential release spark debates in the comments about the ethics of selling such a piece and the importance of preserving historical media.
+
+Next, we explore Stanford's surprising success with AI-generated kernels that outperform expert-optimized ones in PyTorch. By using synthetic data, they achieved impressive speeds with their Conv2D and LayerNorm kernels. The comments highlight a humorous take on AI being likened to a "stochastic parrot," emphasizing the ongoing conversation about AI's innovative potential.
+
+Moving on, we look at stunning photos taken inside musical instruments. Using special cameras and techniques, these images reveal the intricate beauty within violins and guitars, turning them into works of art. Commenters share their admiration and curiosity, with some suggesting fun games to guess the instrument from each photo, reflecting the playful engagement these images inspire.
+
+In tech competition news, a team won $51,000 by finding and exploiting a bug in Linux during Google's kernelCTF. They used AVX512 instructions to solve a "proof of work" problem faster than others. The comments discuss technical challenges and the competition's rules, with some questioning the ethics of holding back exploit disclosures for prizes.
+
+Now, let's talk about the Icepi Zero, a powerful FPGA development board resembling a Raspberry Pi Zero. With its open-source design and multiple ports, it offers flexibility for students, gamers, and programmers. Commenters express excitement, comparing it to similar projects and showing interest in crowdfunding campaigns for ready-made units.
+
+In programming, the article on implementing a ray tracer using the J language showcases its terse syntax and array programming style. While some find J challenging, others appreciate its power. The comments discuss J's comparison to languages like APL and K, and its potential applications.
+
+We also cover how AWS uses formal methods to ensure system correctness. Techniques like TLA+, P language, and deterministic simulation help them maintain reliability. The comments highlight both admiration for AWS's engineering and interest in open-source tools for formal verification.
+
+In job news, StackAI is hiring a frontend engineer to democratize access to Large Language Models. With a focus on user experience, the role involves working with React and Tailwind CSS. The comments discuss the competitive nature of the role and the appeal of working with cutting-edge AI technology.
+
+Lastly, we look at Microsandbox, a tool for secure execution of untrusted code using virtual machines. It combines Docker's ease with VM security. While some users are excited about its potential, others debate the practicality and performance compared to traditional containers.
+
+And finally, an article explains how to run CRON jobs in PostgreSQL using PgBoss and Wasp. This setup is ideal for small projects, but commenters suggest alternatives for larger tasks and discuss the variety of job scheduling options available.
+
+That's all for today's episode. Thank you for tuning in to Hacker News Daily Podcast. We hope you found these stories engaging and insightful. Join us again tomorrow for more tech news and discussions. Have a great day!
