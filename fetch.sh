@@ -49,6 +49,12 @@ DICTOGO_API_TOKEN=${DICTOGO_API_TOKEN:-$OPENAI_API_KEY}
 # 读取播客内容并转义双引号
 PODCAST_CONTENT=$(cat "output/podcast-${DATE_FORMATTED}.txt" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
 
+# 检查播客内容是否为空
+if [ -z "$PODCAST_CONTENT" ] || [ "$PODCAST_CONTENT" = "" ]; then
+    echo "错误: 播客内容为空，无法提交到dictogo.app"
+    exit 1
+fi
+
 # 发送到dictogo.app API
 echo "正在发送播客内容到dictogo.app API..."
 curl -v -X POST "https://api.dictogo.app/openapi/v1/article/create" \

@@ -21,7 +21,8 @@ type Story struct {
 
 // GetHackerNewsTopStories fetches the top stories from Hacker News for a given date
 func GetHackerNewsTopStories(today string, jinaKey string, timeoutSeconds int) ([]Story, error) {
-	url := fmt.Sprintf("https://news.ycombinator.com/front?day=%s", today)
+	// url := fmt.Sprintf("https://news.ycombinator.com/front?day=%s", today)
+	url := "https://news.ycombinator.com/news"
 
 	logger.Info("获取 %s 的热门故事，来源: %s", today, url)
 
