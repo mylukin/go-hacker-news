@@ -57,7 +57,7 @@ fi
 
 # 发送到dictogo.app API
 echo "正在发送播客内容到dictogo.app API..."
-curl -v -X POST "https://api.dictogo.app/openapi/v1/article/create" \
+curl -s -X POST "https://api.dictogo.app/openapi/v1/article/create" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer ${DICTOGO_API_TOKEN}" \
 -d @- << EOF
