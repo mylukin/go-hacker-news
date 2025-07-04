@@ -1,0 +1,51 @@
+Hello everyone, this is the 2025-07-04 episode of Hacker News Daily Podcast. Today, we bring you stories about large language models, the debate on prompt engineering, new mini NAS devices, Google Tag Manager and privacy, the history of EverQuest, the real origins of Caesar salad, a career change for chronic pain, a new open-source AI startup, the trap of ambition, and a gesture-based music app for Mac.
+
+Let’s begin with a thoughtful look at large language models, like ChatGPT. The article explores why some people see these tools as magical helpers, while others think they are almost useless. The truth, the writer says, is much more complex. We don’t really have good ways to compare how people use LLMs, what kinds of projects they try, how skilled they are, or how much extra work is needed to fix the AI’s mistakes. This makes it hard to know if a good or bad experience is common or rare. The author also warns that LLMs can be unpredictable—sometimes they give great answers, sometimes they fail, even on the same question.
+
+There is criticism for those who hype up LLMs without sharing important details, like the size of their codebase, the kinds of bugs fixed, or how much human effort was involved. These stories get lots of attention, but often miss crucial facts. The author shares their own mixed experience: some days AI tools work well, other days not at all. LLMs are not magic, but statistical machines—useful, but not true engineering.
+
+Comments under the article show a wide split. Some people think critics just don’t understand the new technology, while others say results with LLMs vary too much to compare. There are stories of LLMs saving time, and stories of having to double-check everything. Many agree that LLMs are still new, and people are still learning what they are really good for.
+
+This leads us to the next story, about “prompt engineering” for LLMs. The article argues that prompt engineering is not real engineering. It’s more like guessing how to talk to a black box. Users can’t control or even see the training data, the model’s limits, or the software layers between them and the AI. Some prompt engineers claim they can get better results with the right prompt, but often don’t explain what “better” means. Also, LLMs can change in quality at any time, for reasons users don’t understand.
+
+The article compares prompt engineering to homeopathy—lots of claims, but little proof. Tricks like “chain-of-thought” prompts sometimes work, but only in narrow cases. As LLMs get stronger, even new prompt tricks seem unreliable. The author says these are rituals based on hope, not science.
+
+In the comments, some agree and call prompt engineering mostly hype or even folklore—like learning Google search tricks, useful, but not engineering. Others defend the value in finding ways to get better results from a black box. Some point out that companies pay well for prompt engineers, and that testing and measuring prompts can still add value. Overall, the field is split—some see it as a fad, others as an imperfect but growing skill.
+
+Next, let’s look at new mini Network Attached Storage (NAS) devices using NVMe SSDs and efficient Intel chips. The article compares three small NAS models: GMKtec G9, Aiffro K100, and Beelink ME mini. The author’s own needs dropped from 120 TB to 6 TB, so these small, power-saving boxes became a good choice.
+
+Each device has its own trade-offs. The GMKtec G9 is the cheapest, but the first version had cooling problems. The Aiffro K100 is smaller and cooler, but costs more and has fewer features. The Beelink ME mini is very quiet and has the most NVMe slots, but splitting bandwidth can slow things down. Readers in the comments like the move to smaller home servers, but worry about cooling, speed, and software support. Some suggest using an old PC or laptop as a NAS if you don’t need many drives. Many agree that the “right” box depends on your own needs.
+
+Now, let’s talk about privacy and Google Tag Manager. The article explains that GTM helps websites load tracking scripts in ways that are hard to spot and block. With GTM and Google Analytics 4, any website can collect deep information about users—including mouse movement, clicks, and more. Blocking third-party cookies is no longer enough, because sites now use first-party cookies and even run GTM from their own servers.
+
+The article’s main advice is to disable JavaScript in your browser, block all cookies, and use tools like uBlock Origin. More extreme steps include blocking images or using text-only browsers, but this can make many websites almost unusable. The author says it’s important to keep blocking trackers, even if it makes web use harder.
+
+In the comments, some people agree and share tips for blocking scripts and cookies. Others think disabling JavaScript is too extreme and breaks too many sites. A few defend GTM as a tool for basic site analytics. Some worry about how fast tracking methods change, and why governments use GTM at all. Many agree that raising awareness is important, even if not everyone can follow the strictest advice.
+
+On a lighter note, we look at the history of EverQuest, one of the first major online multiplayer games. EverQuest started as a small project inside Sony. The team wanted to make an online world where friends could play together, but without the problems seen in games like Ultima Online. For example, EverQuest stopped player killing on most servers, making the game feel safer.
+
+Bright 3D graphics, online updates, and a focus on quests made EverQuest a hit. The game grew to over half a million players, with monthly fees and expansion packs. But success brought problems—players spent too much time in the game, sometimes hurting their real lives. This started early talks about game addiction.
+
+Comments are full of nostalgia and debate. Some remember the friendships and teamwork, others recall long hours and tough challenges. Many notice how EverQuest changed the business of games, bringing monthly fees, expansions, and strong online communities. Some miss the old days, while others think modern games are better balanced for real life.
+
+Did you know Caesar salad was invented in Tijuana, Mexico, not Rome? The article tells how chef Caesar Cardini made the salad in 1924 when his restaurant ran out of food, mixing romaine, garlic croutons, and a dressing of egg yolk, anchovies, and more. The dish was made tableside, making it fun for guests. The salad quickly spread to the US and the world.
+
+Comments show surprise at the salad’s Mexican roots. Some remember the tableside show, others debate the right recipe—raw egg and anchovies or modern twists. A few talk about making the salad vegan, and others joke about the “Caesar” name. Most agree the story adds charm to a much-loved dish.
+
+Next, we have the story of someone who left their tech job to help people with chronic pain. After struggling for years, the writer learned more about the mind-body link in pain and started a blog to share what they learned. The blog covers pain science, the brain’s role, stress, and practical exercises. New research shows many can get better with mind-body methods.
+
+In the comments, people praise the courage to change careers, share their own stories with pain, and debate the mind-body approach. Some are hopeful, others skeptical, but most appreciate new ideas and hope. Some ask for more details about the tools and exercises the blog will share.
+
+Shifting to startups, we look at Continue, a San Francisco company from Y Combinator. They build open-source tools for custom AI coding assistants in your editor. They are hiring engineers at all levels, with salaries from $100,000 to $250,000, and offer stock options. Their tools already have over 26,000 GitHub stars and 2 million downloads, and are used by big companies.
+
+Many in the comments are excited by the open-source approach and the chance to work on useful AI developer tools. Others warn about the risks of joining a small, early-stage startup. There are questions about remote work, product-market fit, and long-term vision. Some users share good experiences with Continue’s tools, but others note that AI developer tools face tough competition.
+
+Now, a story about being too ambitious. The article explains the “taste-skill gap”—how we judge good work better than we can create it, leading us to dream but never start. The writer tells of a photography class where students who took many photos improved more than those who tried for a single perfect shot. The lesson: practice and mistakes lead to real learning and skill.
+
+Comments agree with the message, saying it matches their own experience in programming, art, and startups. Some warn that planning is still important, and not everyone is stopped by fear—sometimes it’s lack of time or resources. Most see value in the advice to start, accept imperfection, and keep going.
+
+Finally, we look at AirBending, a new macOS app that lets you control music software with hand gestures. It works as a MIDI controller, needs no extra hardware, and lets users set up custom gestures for things like pitch, volume, and effects. You can lock gestures to a scale and key, making it easy to stay in tune.
+
+Hacker News commenters are mixed. Some are excited by the idea and want to see live demos. Others worry about gesture accuracy, hand fatigue, and privacy—does the app record your camera? Some remember trying similar tools in the past with mixed results. There’s interest in using the app for people with disabilities, or for controlling lights and visuals, and requests for a Windows version.
+
+That’s it for today’s episode. Thank you for listening to Hacker News Daily Podcast. We hope you enjoyed this wide range of stories, from the power and limits of AI to new tech for music and the true story of Caesar salad. See you next time!
