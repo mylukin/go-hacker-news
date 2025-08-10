@@ -1,0 +1,55 @@
+Hello everyone, this is the 2025-08-10 episode of Hacker News Daily Podcast. Today, we have a wide range of stories, from history and language to new laws, AI models, and software tools. Let’s dive in.
+
+First, let’s look back in time to the year 1910, a moment when technology was changing daily life very quickly. The article we discuss explains how inventions like the car, airplane, and bicycle made cities busier and life much faster. Many people felt excited, but others were anxious and lost, unsure about what the future would bring. If you compare 1875 to 1905, you see electric lights, skyscrapers, cars, and cameras everywhere—things that did not exist just a few decades earlier. For example, the number of cars in France grew from 3,000 in 1900 to 100,000 by 1914, and Ford made over 300,000 Model T cars in just one year. Some people loved this speed, but critics said “automobilism” was an illness, and doctors even warned about new health problems from riding bicycles.
+
+Women on bicycles were especially shocking to some, because it broke old rules about how women should act or dress. People joked or warned that these machines turned humans into “machines” too, always rushing. All this change brought a new kind of stress. White-collar workers—like office staff, teachers, and engineers—started to suffer from “nervous exhaustion.” Most were city people doing “brain work,” not farm workers.
+
+Artists felt the change as well. Composer Stravinsky shocked crowds with wild music, and painters like Kandinsky and Picasso made new art that did not look like real life. Since cameras could easily copy real things, painters started to show feelings and ideas instead. Critics first hated this art, calling it a sign of sickness.
+
+The article also talks about Weber and Freud, two famous thinkers. Weber said modern work habits came from Protestant religion, helping people save and work hard. Freud saw that modern life forced people to hide real feelings, which could make them sick or anxious. Both agreed that new technology could be good and bad for people.
+
+In the Hacker News comments, some readers say today feels like 1910, with technology moving too fast and life becoming stressful. Others argue every generation feels like this, so maybe it’s normal. Many like the connection between art history and tech history. Some point out that worries about “speed” in 1910 are just like today’s worries about smartphones and social media. Others remind us that mental health problems are not new and share stories from their own families. Overall, the comments show both worry and hope—change is scary, but it can also lead to new art and new ways of living.
+
+Next, OpenAI has released two new large language models with open weights: gpt-oss-20b and gpt-oss-120b. This is the first time since GPT-2 in 2019 that OpenAI has shared large, open-weight models. These models can run locally if you have the right hardware and use some clever optimizations.
+
+The article explains the technical differences between old and new models. GPT-oss uses many modern tricks: RoPE for word order, Swish activation, mixture-of-experts layers, Grouped Query Attention, and sliding-window attention to save resources. RMSNorm is used for normalization, which works well and is cheap to compute. The gpt-oss model is “wider” while Qwen3 is “deeper,” and both use different expert setups. GPT-oss was trained mostly on English, with a focus on science, code, and general knowledge, and users can even control answer depth in prompts.
+
+For hardware, gpt-oss uses a new quantization scheme to run on fewer GPUs. The 20B model fits on new consumer GPUs, while the 120B model needs a powerful server GPU. Early tests show gpt-oss is strong, but it sometimes “hallucinates” more than other models.
+
+Hacker News readers are happy to see OpenAI release open-weight models again, saying it is good for privacy and control. Some remind us that “open-weight” is not the same as “open-source,” since the training code and data are not public. Others are interested in the quantization tricks and the new “reasoning effort” feature. A few want more real-world tests and worry about the hardware needs and the hallucination problem. Many agree that having more strong, open models is good for everyone.
+
+Now, let’s talk about language. An article covers the English phrase “try and,” as in “try and eat the salad.” While “try to” is seen as more correct, “try and” is very common and has a long history, going back to the 1500s. The article gives examples and explains the grammar rules—“try and” does not act like normal “and” in other sentences. You cannot switch the verbs or use “both,” and both verbs must be in the basic form. Some dialects have extra forms, like “tries and does.” Other verbs, like “be sure and” or “mind and,” can work the same way.
+
+In the comments, people notice how often “try and” is used in speech, even though it’s not taught as correct. Some say it feels more casual and friendly. Others are surprised it’s so old, not just a lazy new way of speaking. Teachers wonder if they should keep correcting students. Some grammar fans debate if “try and” really means the same as “try to.” Overall, the comments show that language rules can be strange, and real usage is often more interesting than the rules.
+
+Next, we look at “One Million Screenshots,” a website showing screenshots of many homepages from across the web. The site uses a map-like interface—made with Leaflet JavaScript—to let you zoom, browse, and see different sites. Screenshots are taken using Urlbox, and you can search or look at random sites.
+
+Many find the idea fun and simple. It’s a way to see how web design changes over time and across the world. Some users ask how screenshots are updated, worry about copyright, or suggest new features like sorting by region. Others see it as a tool for web designers and a fun way to discover new sites. Some worry about privacy for smaller sites, but most agree that homepages are public. Overall, it’s seen as a clever, visual way to explore the internet.
+
+Now, a new EU law called “Chat Control” could make all private messages, photos, and files in Europe get scanned by software, even if they are encrypted. The goal is to find illegal content, but the law would scan everything without suspicion or court orders. Supporters say this will help against child abuse, but the article argues it is mass surveillance and weakens everyone’s privacy and security. Mistakes in scanning can lead to innocent people being accused. Child safety groups and the UN warn that such wide surveillance does not work and may make things worse.
+
+Right now, 15 EU countries support the law, 3 are against, and 9 are undecided. Germany’s decision could decide the law’s future.
+
+Hacker News commenters are strongly against Chat Control. Many say it treats everyone as suspects and is a big risk for security. Some worry about government overreach, false positives, and the fact that politicians want to exempt themselves. Others wonder if the law could be enforced on open-source or peer-to-peer tools. Most agree this is a step backward for privacy and digital freedom.
+
+Let’s move to Bolt, a new scripting language made for speed and safety, written in C and easy to add into other programs. Bolt is statically typed, checks types before running code, and is “embed-first,” so it is simple for C programs to use. It is lightweight, fast to compile, and tries to stay minimal to keep things simple. The language is not stable yet, but the author welcomes bug reports and fixes.
+
+Many Hacker News users are excited about a new fast scripting language that is easy to embed, especially for games or tools. Some compare it to Lua or Zig and ask what makes Bolt different. Others want to see more real-world examples and worry about long-term support. Some like the clear error handling and focus on catching mistakes before running code. A few see Bolt as a good learning tool for people interested in interpreters.
+
+Next, there’s a new website, engineering.fyi, which lets you search and read engineering blog posts from top tech companies in one place. The site gathers articles about software, AI, cloud, databases, and more, and shows reading time, authors, and if code is included. Topics cover everything from Kubernetes upgrades to new open-source tools and AI models.
+
+Hacker News commenters like the simple idea and find it helpful for staying up to date with the tech world. Some want more filtering options, like by company or topic. Others worry about missing smaller blogs or copyright issues. Still, most agree the tool is useful for busy developers.
+
+Another research article talks about “diffusion language models,” which can learn from very small amounts of data, unlike standard models like GPT. Diffusion models work by starting from noise and slowly making sense out of it, similar to how AI art is made. These models learn patterns from just a few examples and do well in low-data situations.
+
+Some commenters are excited, seeing this as a big step forward, especially for small companies. Others ask if these models are slower or if they will help with fairness and bias. Some want to see real-world tests, not just research papers. Overall, people are interested in the idea and want to see more open-source projects using it.
+
+Now, let’s look at something fun—a deep dive into the old PC game “The Games: Winter Challenge,” where the author tried to make the longest ski jump. By removing copy protection and studying the game’s code, the author found ways to create the perfect jump. They built a simulator in Rust to test different inputs and used tricks like centering for less drag, perfect ski angles, and the “wiggle technique” to gain speed. The best jump reached 113.8 meters.
+
+Readers praised the technical analysis and problem-solving. Some enjoyed the nostalgia and compared it to tricks in other games like “strafe running” in Quake. Others asked about reverse engineering tools and math. Many liked that the project was about understanding and enjoying the game’s design.
+
+Next, we have a story about photography in the Soviet Union, based on the book “In Visible Presence.” The Soviet government wanted photos to have social meaning, but family albums often included strangers and told personal as well as political stories. The book’s authors studied over 50 photo collections and found that silence and forgetting were important themes—people often chose not to talk about certain photos.
+
+Hacker News comments were mixed. Some were surprised by the inclusion of strangers in albums. Others compared Soviet albums to those in their own countries. Some discussed how digital photos change how we remember and share. Many respected the research and the idea that even simple family photos can have deep meaning for both families and history.
+
+That’s all for today’s episode. We hope you enjoyed these stories and comments from the Hacker News community. See you next time.
