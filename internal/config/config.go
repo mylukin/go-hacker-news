@@ -13,7 +13,7 @@ const KeepDays = 30
 const DefaultOpenAIBaseURL = "https://api.openai.com/v1"
 
 // DefaultHTTPTimeout is the default timeout for HTTP requests in seconds
-const DefaultHTTPTimeout = 60
+const DefaultHTTPTimeout = 300
 
 // Config holds application configuration
 type Config struct {
