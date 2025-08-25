@@ -1,0 +1,75 @@
+Hello everyone, this is the 2025-08-25 episode of Hacker News Daily Podcast. Today, we have a full lineup of stories for software developers and tech fans. Let’s get started.
+
+First, we look at how Google is cooling down its powerful AI chips in data centers. Google has moved from air cooling to liquid cooling for their TPU servers, because machine learning chips use a lot of electricity and get very hot. Water is about 4000 times better than air at moving heat, so Google built racks with Coolant Distribution Units, or CDUs. The coolant flows through hoses to each server, cools the chips, and then passes the heat to the building’s water supply. The coolant and building water do not mix—CDUs only move the heat between them.
+
+Google made sure every chip, even the last one in the loop, stays cool enough. They use a special split-flow cold plate to make cooling more even. For the newest chips, they even removed the chip’s lid so the coolant can touch the chip directly, because these chips use much more power. Liquid cooling also uses less electricity—Google says their pumps need less than 5% of the power that air fans use.
+
+But maintenance is hard. Liquid cooling can leak or grow microbes. Google uses quick disconnects and keeps an extra CDU in each rack, so they can fix things without stopping servers. They test for leaks, have alarms, and do regular checks. This is not like home PCs, where you usually need to turn off the system.
+
+Other companies, like Nvidia and Rebellions AI, are also showing off liquid cooling. Some mix fans and water blocks, or use chillers.
+
+On Hacker News, readers said liquid cooling is not new—it was used in old mainframes too. But the AI boom means better cooling is more important now. Some worry about leaks, but others say Google’s protocols make it safer. Many like the energy savings, while a few ask if this could work in offices or homes. Some people point out that home PC builders have done similar things, but Google’s systems are much bigger. Others wonder if air cooling will ever come back or if immersion cooling is next. Many are curious if these ideas will spread to other industries as chips get even hotter.
+
+Next, Google is planning to make it harder to sideload Android apps. Soon, developers will need to verify their identity before users can install their apps from outside the Play Store. This means to install an app not from the official store, the developer must prove who they are, usually with a government ID. Google says this will stop malware and make users safer. The new rule will start soon, but there is no exact date yet.
+
+Sideloading means installing apps from other websites or stores, not from Google Play. Many people do this for special apps or to avoid Google’s rules, but it can also bring in viruses. Some developers worry this will make it harder for new or small app makers. Others think it is good because it may reduce scams.
+
+On Hacker News, some say this is Google trying to control Android, like Apple does with iPhones. They feel Android should stay open. Others argue safety is important, since fake apps are a big problem. Some worry that developers in some countries may not have the right documents to get verified. People also ask if open-source apps will be hurt, since they often do not have big companies behind them. There is hope that Google will make the process fair, but many agree this is a big change for Android users and developers.
+
+Now, let’s talk about Llama Fund, a new way to crowdfund large AI models. The idea is to let anyone help pay for AI research, not just big companies. Here’s how it works: first, researchers write a proposal for a new AI model and explain their plan. Next, the community gives money, like a Kickstarter for AI. When there’s enough money, the team trains the model and keeps everyone updated. When finished, the model is shared as open-source, so anyone who helped can use it.
+
+Supporters say this helps make AI more open and fair. It could help smaller teams or universities build big models. But some worry about funding—will enough people care to give money? Others ask if the models will really be useful and if large companies will just copy the results. There are also questions about privacy and handling big data. Some users are excited to follow the training process, while others want more ways to help, like sharing data or computer power. Overall, many see promise, but also big challenges for Llama Fund.
+
+Next, there’s Blacksky, a new social media app built on decentralized and open-source tech. Blacksky is part of the Bluesky network, but it focuses on Black users and communities. It uses the AT Protocol, which lets apps and servers connect and work together. This means users can move between apps, keep their data, and talk across the network.
+
+Blacksky started as a small project to highlight Black voices and grew to two million users without ads. Users and communities can own their space and set their own rules. Blacksky built its own moderation tools, with a team from the community, to handle harassment and harmful content. The goal is to protect users, not just follow company policy.
+
+Blacksky’s tech includes tools for blocking toxic content, automated alerts, and a global data relay to keep the network strong. They share their open-source tools so others can build communities too.
+
+On Hacker News, some love the open-source, decentralized model and think it’s the future. Others worry that if each group controls its own rules, there could be more hate or echo chambers. Some ask how AT Protocol works and if power could still become centralized over time. There are also worries about building safe spaces for specific groups, and about finding enough people to run and moderate servers. Overall, there’s excitement for new ideas, but also many questions about how they will work in real life.
+
+For Mac users, there’s a new app called Base for editing SQLite databases. Base lets you manage, browse, and edit SQLite files with a friendly interface. Features include a schema inspector, a visual table editor, a data browser, a smart SQL editor, and import/export tools.
+
+The schema inspector shows your database structure without writing SQL. The table editor lets you make changes visually. The data browser shows tables in a grid, where you can filter, sort, and edit data. The SQL editor has autocomplete and syntax highlighting, and you can save query snippets. Base supports importing from CSV or SQL, and exporting to CSV, SQL, JSON, or Excel.
+
+Base is free to try, but some features need a one-time payment. It only works on macOS 15 Sequoia or newer.
+
+In the comments, users like that Base is clean and easy to use. Some compare it to free tools like DB Browser and TablePlus, talking about price, design, and features. A few want Windows or Linux versions. Some say Base is great for small projects, while others worry about the price since there are free options. There are also requests for more features, like better support for large databases. Most agree Base is helpful for Mac users, but there’s room to improve.
+
+Next, we have a story about big O notation. Big O shows how fast or slow a function is as input gets bigger, without running the code. The article starts by showing a loop that sums numbers from 1 to n—this is O(n), or linear time. Using a formula is O(1), or constant time.
+
+Big O uses only the biggest term, so O(n) instead of O(2n). Bubble sort is O(n^2), or quadratic time. Binary search is O(log n), much faster for big lists.
+
+The article shows how better data structures can make code faster, like using a Set for O(1) checks, but building the Set is O(n). It warns against slow mistakes, like using indexOf inside a loop. Caching results can help in practice, even if not in the worst case.
+
+In the comments, readers call the article a clear intro to big O. Some like visual examples, while others remind us that real speed can depend on hardware. O(1) is not always instant, and for small inputs, a slower algorithm may still be faster. There are requests for more on space complexity. Many thank the author for making the topic easier.
+
+April is a new voice AI assistant from Y Combinator’s Summer 2025 batch. April helps people manage email and calendar tasks by letting users talk to it. You can ask April to read emails, find important messages, summarize threads, schedule meetings, send replies, or set reminders—all by voice. April works on desktop and mobile and uses the latest AI models.
+
+Early users include salespeople and executives. The team is focused on privacy and says user data stays safe. They are improving April based on user feedback.
+
+On Hacker News, people are excited about saving time and reducing email stress. Some worry about privacy and if April can really understand complex emails. Others want to use it for people with disabilities. A few say voice assistants have failed before, but hope new AI is better. There are questions about pricing, email provider support, and requests for more features. Most users are hopeful but want to see how well it works.
+
+Now, RubyGems.org shared how they protect the open-source Ruby community from harmful software, after news about fake Ruby gems stealing credentials. Their system checks every new gem, both by reading the code and running tests. Risky gems are checked by people, and old gems are scanned again as tools improve. RubyGems also listens to warnings from the community.
+
+Most bad gems are removed before public reports. If a gem is suspicious, it is checked by a security engineer, and sometimes another team member. Confirmed bad gems are removed and accounts are deleted. Sometimes, names are blocked to stop tricks.
+
+In a recent case, RubyGems removed almost all bad gems before a public report and deleted the accounts. Trusted gems were not affected. They ask for more reports by email or Slack and need both sponsors and volunteers to keep the system safe.
+
+Comments praise RubyGems for fast and careful work, especially compared to bigger ecosystems like npm. Some think more automation and funding are needed. Others ask for more transparency. Many thank the volunteers, and there are calls for big tech companies to support RubyGems, and for users to check their code.
+
+Next, we look at OKLCH, a new color model for web design. OKLCH is based on lightness, chroma, and hue, and uses the OKLab color space. This means if you change only the hue, your colors keep the same brightness and strength, unlike with HSL. This makes designs look more balanced.
+
+Modern screens can show more colors, and OKLCH can use these, but if your screen does not support them, the browser shows the closest color. Sometimes, you can write colors that no screen can show, so you need to be careful. Gradients in OKLCH are smoother, but can sometimes look strange. Some tools use OKLab to make gradients more predictable.
+
+OKLCH works in most modern browsers, and you can use CSS fallbacks for older ones. There’s also a tool called oklch.fyi to try it out.
+
+Hacker News users like OKLCH for more even and professional colors. Some mention trouble with gradients or browser support. Developers share tips for using OKLCH with CSS frameworks, and some hope it becomes the new standard. There are comments about accessibility, with OKLCH making it easier to check color contrast. Some still prefer RGB for simple projects, but most think OKLCH is a big step forward.
+
+Now, a creative project on using an old iPhone as a UniFi Protect camera. UniFi Protect normally works with its own cameras, but can also use third-party ones if they support ONVIF. iPhones do not support this, but the author found an app called IP Camera Lite that can send an RTSP stream. He used ffplay to check the stream, then ran a Docker program called rtsp-to-onvif on his Synology server to make the stream look like an ONVIF camera.
+
+After changing some settings and turning on the “Discover 3rd-Party Cameras” option in UniFi Protect, the system found the new camera. He fixed some settings, and now the iPhone works as a security camera.
+
+Comments liked the creative recycling of old devices and saving money. Some say the setup is complex and might break after updates. Others use old phones as cameras with different apps. There are concerns about security and video quality, but for simple needs, it works well. Many liked the detailed guide and troubleshooting, and most found the project fun and useful.
+
+That’s all for today’s episode. Thanks for listening to Hacker News Daily Podcast. We’ll see you tomorrow with more stories from the world of tech.
