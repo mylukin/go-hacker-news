@@ -1,0 +1,83 @@
+Hello everyone, this is the 2025-10-25 episode of Hacker News Daily Podcast. Today, we bring you a mix of stories about technology, software tools, hardware innovation, and even a bit of natural history. Let’s get started.
+
+Our top story today is about California’s big success with battery energy storage. Just a few years ago, California had power problems every summer—rolling blackouts, warnings to use less electricity, and a lot of stress for everyone. This has changed, and experts say the main reason is a huge investment in battery storage.
+
+Now, batteries store extra solar power during the day and send it to the grid in the late afternoon, when people need it most. California’s battery capacity has grown from just 500 megawatts in 2020 to over 15,700 megawatts today. This makes the grid much stronger and more stable, even during hot weather or wildfires. It also helps the state use more renewable energy and rely less on old gas power plants, which can struggle in the heat.
+
+Most of these batteries are lithium-ion, and they can run for four to six hours. That’s enough for peak times, but sometimes the grid still needs help from natural gas. New battery types, like iron-air and flow batteries, could last longer, but they are still expensive and not as common. Battery prices are dropping fast, and new batteries now cost about the same as new gas plants.
+
+There are still some problems to solve. California’s power grid is old and needs upgrades. Building new energy projects can take a long time because of strict rules, but the state is trying to speed up permits. Safety is also an issue—a fire at a big battery site caused health worries. Experts say using different kinds of batteries can help lower risks.
+
+California is almost finished with coal power, and now about 60% of its electricity comes from renewables. In 2024, the grid even ran on 100% clean energy for several hours each day. Leaders say the new system works and the state has stayed reliable without the old blackouts.
+
+On Hacker News, most commenters praised California’s progress, calling battery storage a real turning point. Some shared technical details about battery types and their uses. Others were surprised by the fast growth and asked if other states can follow. There were worries about safety, slow permits, and if grid upgrades will keep up with growing demand. Some users liked the idea of combining batteries with demand response, where people and companies use less power at busy times. There was debate about the ongoing role of natural gas and questions about battery recycling and tariffs. Overall, most agreed that battery storage is helping, but they want even more progress on cost, safety, and long-term solutions.
+
+Next, we have two articles that dive deep into how programs start running on Linux. Both focus on the ELF file format, which is how Linux stores and loads programs.
+
+When you start a program in Linux, the kernel uses the execve system call. This call tells the kernel which program to run, with what arguments and environment. If you use a script with a shebang line—like #!/usr/bin/python3—the kernel uses the right interpreter.
+
+The ELF file has a header that tells the kernel where the code is, what CPU the program runs on, and where to start. It also has sections for code, data, and links to shared libraries. Even simple programs, like “Hello, World!”, include a lot of extra code for linking and runtime support.
+
+The kernel reads each section, loads them into memory, and sets up security features like address randomization. It also sets up the stack with variables, arguments, environment, and an auxiliary vector, which gives the program more system info. The first code to run is usually a function called _start. Most languages run some setup code before calling your main() function.
+
+If your program is dynamically linked (which most are), the kernel also loads a runtime linker. This linker loads any shared libraries you need and then starts your program.
+
+Linux can even run 32-bit ELF programs on 64-bit systems, using special compatibility layers.
+
+Hacker News commenters liked these articles for their clear explanations. Some pointed out how much work the kernel does, and how tools like strace, gdb, or objdump help debug problems before main() starts. There were stories about debugging startup problems, and discussions about how process loading is different on macOS or Windows. Some users liked that the articles stayed high-level, while a few wanted even more kernel-level detail. Overall, readers found it helpful to understand what happens before a program truly begins.
+
+Now, let’s talk about a new tool for making diagrams: Oxdraw. Oxdraw is written in Rust and uses Mermaid syntax. It lets you create diagrams as code, but also lets you drag and edit things by hand in a web editor built with React.
+
+You can write your diagrams as Mermaid files and keep them in version control. Oxdraw can turn these files into images from the command line or let you edit them visually. If you move things around in the editor, Oxdraw saves those changes back into the Mermaid file as comments. This keeps your diagram compatible with other Mermaid tools.
+
+You can color nodes, change edge styles, add control points, group nodes, and use keyboard shortcuts for faster work. The tool tries to balance clear lines with smooth paths, though the author says the path algorithm still needs work.
+
+Oxdraw was created because the author found it hard to make small changes to diagrams in Mermaid and often had to use other tools like Lucidchart. With Oxdraw, you get both the power of code and the ease of a GUI editor. It’s open source and can be installed with Cargo.
+
+In the comments, people were excited about mixing Mermaid with a visual editor. Some asked how Oxdraw compares to other tools like Excalidraw or Diagrams.net, and if it supports more complex features. There was interest in exporting to more formats, better AI integration, and how well the path algorithm works as diagrams get bigger. Some users are happy it’s open source and written in Rust, but others wonder if it’s easy to install on all systems. Syncing visual changes back to code is hard, but many are impressed that Oxdraw tries to do this. Overall, there’s a lot of support and helpful feedback about where Oxdraw could go next.
+
+Let’s switch gears now to a new web tool: ShadCN Themer. This tool helps people make, change, and share themes for the shadcn/ui component library.
+
+The main idea is to let users design custom color themes easily. You can start with a ready-made theme or import your own. The site shows many themes with different color palettes and styles, and you can filter by color. The website is simple to use, with easy buttons for signing in, signing up, and importing themes. You can see who made each theme, and after making or changing a theme, you can save and share it. There’s a GitHub connection for those who want to see or share the code, and you can preview themes before using them.
+
+In the comments, users were happy to see a theme editor for shadcn/ui, saying it fills a real need. Some want to export themes in JSON or CSS, while others wish for more themes from different users. There were suggestions for previewing themes on real UI components, and some people shared ideas for new features like dark mode previews or more color spaces. Users liked the simple interface and that you don’t need an account just to browse. There were also questions about open source plans and possible ways to sell or trade themes in the future. Overall, people thanked the creator and hope the tool keeps growing.
+
+Next, we look at ARM’s Memory Tagging Extension, or MTE, which aims to make C and C++ programs safer. C and C++ have many memory safety problems, like use-after-free and buffer overflows, which can cause crashes and security bugs.
+
+MTE is a new hardware feature for ARM processors. It adds a small tag to every 16 bytes of memory and to every pointer. When a program loads or stores data, the hardware checks that the pointer and the memory have matching tags. If they don’t, the program gets an error. This helps catch bugs like using memory after it’s freed or writing past the end of an array.
+
+Using MTE does add some cost—about 3 to 5% more RAM and a bit more CPU time—but it is much faster and easier than software-only tools. It only works on 64-bit systems and needs new instructions, but it’s a big step for software safety. Other systems like SPARC ADI and AddressSanitizer exist, but MTE is faster because it’s built into hardware.
+
+In the comments, many people are excited about MTE and think it’s important for safety. Some say that while MTE is good, it won’t catch every bug and does not fix all problems with C or C++. There are worries about the extra memory and CPU cost, especially for small devices. Some developers think languages like Rust are still better in the long run, but others say hardware features like MTE help with old code and large projects that can’t move to safer languages quickly. There are questions about when real ARM chips will have MTE, and some users share their own experiences with similar tools. Overall, people are hopeful but realistic about how much MTE can help.
+
+Now, let’s talk about a new tool from Microsoft called Agent Lightning. This tool helps you train AI agents with reinforcement learning, and you don’t have to change your agent’s code. It works with many agent frameworks, like LangChain, OpenAI Agent SDK, AutoGen, CrewAI, and plain Python.
+
+You add a small helper or use the built-in tracer to watch your agent. All events—prompts, tool calls, rewards—are recorded in a central store called LightningStore. Then, a learning algorithm reads this data and tries to improve your agent’s behavior. For example, it can rewrite prompts or update policy weights. The Trainer part keeps everything working together.
+
+You can choose which agents to optimize, and the tool supports more than just reinforcement learning—it also works with prompt optimization and supervised fine-tuning. Installing it is simple with pip, and there are guides and real examples to help you get started.
+
+Hacker News commenters liked that you don’t need to change your agent’s code. Some were excited to try new ideas or add learning to existing projects. Others asked about how well it works with different agent frameworks, if it slows things down, or how safe it is to let agents change themselves. There were questions about how to give reward signals, and wishes for more examples and simple tutorials. Some people pointed out that recording every prompt and action could use a lot of storage. Others liked that it works with open source tools, not just Microsoft’s products. Overall, users hope this project will help improve agent performance for real-world jobs.
+
+Switching topics, there’s a story about the extinction of the Christmas Island shrew, a small mammal once common on Christmas Island in the Indian Ocean. The shrew was not a marsupial like most Australian mammals. Scientists think it arrived from Indonesia long ago, probably on floating plants. In the late 1800s, shrews were common, but when black rats arrived on ships, they brought a deadly parasite. Rats and the disease killed off the native mammals, including the shrew.
+
+For many years, people thought the shrew was gone. It was seen a few times in the 1950s and 1980s, but after that, no more were found, even after many searches. Now, it’s officially listed as extinct.
+
+Hacker News commenters said the extinction is sad and that even small animals matter. Some noted this is part of a bigger pattern of losing many animals from islands after humans arrive. Others felt angry about how invasive species are brought without thinking of the damage, and how hard it is to notice or save very small creatures in time. A few people wondered if the shrew might still be hiding somewhere, since some animals thought extinct have been found again. Some called for stronger rules to stop new animals and diseases from being brought to islands, and others said remembering lost animals can help us care more for the ones still living.
+
+Now, let’s move on to a technical topic: testing Bluetooth Low Energy beacons with a tool called BeaconDB. BLE beacons are small devices that send out signals, and phones or computers can pick them up to know where they are—useful for things like indoor location tracking.
+
+The article explains how the author set up a few cheap BLE beacons around a room and used BeaconDB on a laptop to track and record the signals. The tool saves the signal info in a database, making it easy to find patterns. The setup showed how walls and furniture can weaken signals, and the database made it easy to see all the data at once.
+
+BLE beacons are useful for tracking things indoors, like in stores or museums. BeaconDB is open source and easy to use, even for beginners.
+
+In the comments, people said BLE beacons are great for many projects, like finding lost keys or tracking equipment. Some warned that signals can be blocked by metal or thick walls, and a few asked if using many beacons together could cause interference. There was praise for BeaconDB being open source, and some concerns about privacy if beacons are used to track people without their knowledge. Others liked that BLE beacons use very little battery. Overall, readers found the article a simple way to get started, but said there are still challenges to solve.
+
+Finally, we have a practical article about rock tumbling—turning rough rocks into shiny, polished stones using a rock tumbler. The article gives step-by-step instructions and tips for the best results.
+
+The main rules are: use good rocks (hard and not too soft), don’t mix different grits or types of rocks, and be patient—great results take time. Rocks should be similar in size and hardness, and you can use ceramic pieces as filler. The process goes through four steps: coarse grind, medium grind, fine grind, and polish, each taking about a week. After each step, it’s important to clean everything well. If the stones don’t shine at the end, you can burnish them with soap and water.
+
+The article also suggests keeping a record of your work to remember what works best.
+
+In the comments, many said rock tumbling is a fun hobby, especially for families. Some shared tips about using different types of grit or adding ceramic media. A few warned that it takes a long time, and patience is key. There were tips about handling noise and not harming plumbing. Some people learned that using poor-quality rocks almost never gives good results, and that careful cleaning between steps is the most important part. Overall, most agree that following the instructions gives the best results, and the shiny stones are worth the effort.
+
+That’s all for today’s episode. We covered big changes in energy storage, learned how programs start in Linux, explored new tools for diagrams and UI themes, saw hardware making software safer, and much more. Thank you for listening to Hacker News Daily Podcast. We’ll see you next time.
