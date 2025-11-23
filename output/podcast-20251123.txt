@@ -1,0 +1,57 @@
+Hello everyone, this is the 2025-11-23 episode of Hacker News Daily Podcast. Today, we have a lot of stories for software developers and tech fans. Let’s dive right in.
+
+Our first story is about Fran Sans, a new font created by Emily Sneddon. This font is inspired by the old LCD displays on San Francisco’s light rail trains. Emily noticed that the train signs had a special, simple, and mechanical look, made from grids of squares and angles. These old signs, made by Trans-Lite in 1999, only showed the needed destinations, so some letters like Q and X did not even exist. Emily visited the workshop where these signs are fixed and learned how operators enter a code, lighting up certain segments to show where the train is going.
+
+Inspired by this, she created Fran Sans by breaking letters into small modules, like building blocks. She made a full set of uppercase letters, numbers, and some punctuation, but some symbols do not fit well in the grid, and there are no lowercase letters yet. Fran Sans comes in three styles: Solid, Tile, and Panel. Emily hopes her font will help people remember the old style as the original LCD signs are now being replaced by modern LED displays.
+
+On Hacker News, many people love the idea of making a font from real city details. Some share their memories of these old train signs, saying they feel nostalgic. Others discuss the challenge of fitting letters into a small grid, and how this makes the design more interesting. A few designers praise the process and say it’s a good way to learn about typography. Some ask if Fran Sans could be used in other places, like game displays, and others point out that losing small details like these signs is part of how cities change. But many are happy this font helps keep that style alive. Emily even answered questions about her design process and the tools she used.
+
+Next, we have news for Mac users: macOS can now create and use SSH keys that are protected by the Secure Enclave chip, without any extra tools. Secure Enclave is a special part inside your Mac that keeps secrets safe, like your fingerprints or private keys. With one command, you can make an SSH key that requires Touch ID to use, and the secret part never leaves the chip.
+
+You can view, list, or delete these keys with more commands. For SSH, you just need to set a special option so SSH knows where to find the Secure Enclave. There’s also an “exportable” option if you want to move your key to another device, but some people warn this is less secure than keeping it only in the chip.
+
+Hacker News commenters are excited. Many like that you do not need third-party apps like Secretive anymore, and some say this is great for security. A few ask what happens if you lose access to your Mac or Touch ID—the key could be gone forever. Some want to use these keys for other things like signing Git commits, and others hope Apple will make this feature easier to find in the future.
+
+Now let’s talk about Linux. Zorin OS, a Linux system, just reached 1 million downloads in a bit over a month—most of them from Windows users. The team is also testing an upgrade path from Zorin OS 17 to 18 that keeps your files and settings.
+
+Zorin OS is popular with people moving from Windows because it looks and feels familiar. Tech reviewers say it is very polished and easy to use, especially for newcomers. The upgrade is only for some users now and should not be tried on important computers yet, as it is still being tested. Users are advised to back up their files before upgrading.
+
+On Hacker News, many are surprised by the high number of Windows users trying Zorin. Some say it shows people want alternatives, maybe because of privacy worries. Others are more skeptical, saying download numbers do not always mean people are really switching. Some share their own stories of helping friends move to Linux. Technical discussions focus on the upgrade process, possible problems, and the importance of making the move easy. Even if only some people switch, most agree it’s good for the Linux community.
+
+Switching topics, there’s a new book about calculus that focuses on both how and why the math works. The author starts with the basics—sets, logic, and the difference between math and science—using computer science examples like bits and logic gates. The book explains calculus as a way to describe change, like the speed of a falling stone, and also as a deep theory about infinity and small things. The big theme is that in math, you need proof, not just intuition.
+
+Each chapter builds on the last, with many examples and figures. The author often stops to talk about what the ideas mean, not just how to get the answer.
+
+Hacker News readers like the focus on both theory and real-world uses. Some say they wish they had learned from a book like this, and others praise the clear writing and connection to programming. A few say it is more challenging, but also more rewarding. There’s debate about whether it is too theoretical, but most agree it is a strong resource for people who want to really understand calculus.
+
+Next up is Gitlogue, a new command-line tool that shows your Git commit history as an animation. You can watch your codebase change over time, step by step, from the first commit to the latest. Gitlogue works with any Git repo, and you control the animation—pause, go forward, back, or jump to a commit. It is written in Go, so it runs fast on Linux, macOS, and Windows.
+
+The article explains how seeing your commit history this way can help you understand your work, or teach others about Git. Many Hacker News commenters like the idea, saying it’s great for demos or learning. Some want more features, like more detail per change, or support for other version control systems. Some worry about big projects being slow, but the creator says you can skip around. Most agree it makes Git history more fun and easy to understand.
+
+Another story is about using shaders to draw graphics using only x and y coordinates. Shaders are small programs running on your computer’s graphics card. They decide the color of each pixel by using math and the pixel’s position. This lets you draw shapes and patterns without using big image files, and the graphics stay sharp at any size.
+
+The article gives examples like drawing circles using the distance to the center, or making lines and gradients. Shaders can also use time as a variable for animations. Many people on Hacker News are excited about shaders, saying they are powerful for graphics and art. Some warn shaders can be hard to debug and have a learning curve, but others share tips and resources for beginners. There’s discussion about using shaders in games, web browsers, and even for making art.
+
+Now, Racket 9.0 has been released. The main new feature is support for parallel threads, so Racket can now run code at the same time on different cores more easily. Before, Racket had green threads, futures, and places, but parallel threads make real parallel processing easier to use. You can create parallel threads with a new option and get results with thread-wait.
+
+Other updates include a black-box wrapper for better benchmarking, a new function for decompiling Racket code, more accurate processor counts, and a better math library with Weibull distributions. There are also many small bug fixes.
+
+Hacker News users are happy about the new parallel threads, saying this was a long-requested feature. Some discuss technical details like thread safety and garbage collection, and others are glad about improvements in the math library and syntax checker. Many thank the team for their hard work and open community.
+
+For Linux users who want to use Proton Drive, there’s a new guide on how to mount Proton Drive as a folder using rclone and systemd. After installing fuse3 and rclone, you link your Proton Drive account and use a setup script. This creates a folder that shows your Proton Drive files, and a systemd user service mounts it at login. The guide explains how to check the service, see logs, and uninstall everything if needed.
+
+Hacker News commenters are happy that Proton Drive can now be mounted on Linux, with many saying rclone’s new support is a big step. Some say setup is easy for experienced users, but could be confusing for beginners. Others discuss mount problems, systemd user services, and security. Some share tips for making it faster or more private, and others wish Proton would make an official Linux client.
+
+We also have an article about engineering management. The author says what companies want from managers changes a lot over time, usually because of business needs, not moral reasons. In the past, managers focused on moving teams forward. Later, they were told to focus on hiring and keeping engineers happy. Now, with new tech and a changing economy, managers are asked to be hands-on again.
+
+The advice is to focus on core skills that matter in any era: getting things done, helping your team, taking responsibility, making sure everyone understands the plan, having good judgment, being clear, handling unclear problems, and thinking both short- and long-term. But managers also need to be ready to adapt, as the most important skill can change quickly. The article says you should also make sure your work keeps you energized, and to make choices based on your own goals, not just what your company wants now.
+
+In the comments, some agree that management trends are always changing and that business needs are the main reason. Others say that clear communication and responsibility are always important. Some share stories about being told to stop coding, then being asked to code again later. There’s debate about whether calling everything a “fad” is too negative, but most agree that being able to adapt is key in tech.
+
+Finally, there’s a detailed guide on how to set up Emacs for efficient code editing, using a custom modal editing system. This setup has separate modes for moving and typing, a bit like Vim, and uses leader keys for common actions. The goal is to keep your hands on the keyboard and move quickly through code. The author’s system sticks close to Emacs defaults, so you don’t get lost if you use another setup. There are keybindings for moving, editing, jumping, and more.
+
+The author uses few extra packages, but does recommend some for searching, Git, and showing changes. They say this setup is not better than Vim—just what works for them.
+
+Hacker News users like the explanation and agree that modal editing can be very fast once you learn it. Some worry that too much customization can make Emacs hard to use elsewhere, and others talk about the learning curve. There’s a discussion about the pros and cons of customization, portability, and using extra packages. Some say modern editors like VSCode are catching up, but Emacs is still powerful for those who invest the time.
+
+That’s all for today’s episode of Hacker News Daily Podcast. Thank you for listening, and we’ll see you next time.
