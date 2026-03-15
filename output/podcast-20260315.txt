@@ -1,0 +1,43 @@
+Hello everyone, this is the 2026-03-15 episode of Hacker News Daily Podcast. Today, we bring you a wide range of stories from software, hardware, robotics, web development, and even a little bit of travel. Let’s get started.
+
+Our first story is about a new feature in Chrome DevTools that makes debugging browser sessions much smarter. Now, coding agents—like AI tools or scripts—can help you debug your live Chrome window. This means if you are logged into a website, your coding agent can use your current session to check problems hidden behind a login wall. You no longer need to sign in again or start a new browser just for debugging.
+
+Here’s how it works. Chrome DevTools can now connect to coding agents through something called the MCP server, using a new “autoConnect” option. To use it, you first enable remote debugging in Chrome version 144 or newer. When an agent wants to join, Chrome will show a pop-up for your permission, and while the agent is active, you get a warning banner that your browser is being controlled by software. This setup makes it simple to switch between manual debugging and letting an agent take over. You can even have the agent check a site’s performance or investigate broken requests—all using your current session.
+
+Many people on Hacker News find this helpful, especially for bugs that only show up after you log in. They like that you have to give permission for every agent, which adds security. There are still questions about privacy and whether the warning banner is enough. Some users warn about possible new attack risks, and a few suggest waiting for more documentation before using it in serious work. Still, most agree it’s a big step forward for mixing automation with manual debugging.
+
+Next, let’s talk about web bloat. An article looked at why a single New York Times webpage can be as big as 49 megabytes—bigger than Windows 95 or a full MP3 album. Most of this size comes from ads and tracking scripts, not the news itself. When you open a news article, your browser loads hundreds of files for ad auctions, data collection, and more. This slows down your device, burns battery, and makes reading harder—especially with cookie banners, pop-ups, and auto-playing videos.
+
+Many readers are frustrated by this. Some use ad blockers or avoid these sites. Others miss the old days when websites were fast and simple, and point out that even non-news sites are getting too heavy because of modern frameworks and scripts. Publishers need ad money, but these ads are driving readers away. Some users say we need stronger rules against these dark patterns. Others use RSS feeds or “reader” modes to get just the text. Most agree: the web is worse for readers now, and they hope things will improve.
+
+Moving on, Go 1.26 has a new tool called the source-level inliner. This lets you update your Go code by inlining function calls directly in your source files. With a special `//go:fix inline` comment, package authors can mark old functions. The `go fix` tool will then replace calls to these old functions with calls to the new ones, or even swap constants and types.
+
+The inliner is smart—it handles tricky cases like side effects or repeated parameters, and tries to keep your code working the same as before. It can even update old APIs in big codebases with less manual work. Some people are excited, saying it will help clean up old dependencies. Others warn that automatic changes can make code messy, so code review is still needed. Overall, it’s seen as a helpful tool for Go, though not perfect.
+
+Next is a new gallery comparing more than 30 large language model architectures. This page lists models like Llama, OLMo, DeepSeek, Gemma, Mistral, Qwen, Grok, and more, giving technical details such as parameter count, attention type, and special tricks for speed or memory. You can see which are dense or sparse, which focus on coding or multilingual tasks, and click through to research papers.
+
+Hacker News users say this is a great resource for anyone trying to keep up with fast-moving LLM research. Some wish it included more info about training data or benchmarks. A few find the technical terms hard but appreciate that each term links to an explanation. Most people agree that with so many new models, a gallery like this is very useful.
+
+Now we turn to Linux graphics. The “river” project brings a new approach to Wayland compositors and window managers. Instead of having one big program do everything, river splits the compositor and window manager into two. This means you can write a custom window manager without dealing with the hard parts of drawing to the screen. If the window manager crashes, you can restart it without breaking your session. River already works with about 15 window managers, opening the door to much more choice and creativity.
+
+People like this split design, saying it lowers the barrier for making new window managers, which was common in X11 days. Some are waiting for more features or better documentation, but most are hopeful that this will make Wayland more flexible. There are also security questions, but the overall mood is positive.
+
+Let’s switch to hardware. Intel Optane is a special SSD that came out in 2017 using 3D XPoint memory instead of NAND flash. Optane is much faster, lasts longer, and keeps its speed even under heavy use or when nearly full. This makes it great for caching, databases, and high-write systems. Optane also has strong power-loss protection.
+
+Sadly, Intel stopped making new Optane products in 2022, but you can still buy existing drives. Some people loved Optane for special jobs, but it was expensive and had low capacity, so it was not for everyone. Users wonder if new tech like CXL will fill the same role. Most agree: Optane was unique, but market forces made it hard to keep going.
+
+Now for something different—a travel story. One person shared their 3,800-mile bus trip from Lima, Peru to Rio de Janeiro, Brazil. The journey took nearly 118 hours and cost about $354 in tickets. The route included stops in cities like Arequipa, Puno, Uyuni, and Sucre. The author shared details for each leg, tips on buying tickets, and advice about safety—especially in Bolivia’s mountains.
+
+Readers were surprised by the low cost and endurance needed for such a trip. Some asked why not fly, but others said bus travel is a good way to see more and meet people. There was lots of advice about safety, paying in cash, and getting better deals. Many felt inspired to try slow travel themselves.
+
+Back to programming: C++26 will soon require a comma before the ellipsis in variadic function parameters. So, `void foo(int...);` will be deprecated in favor of `void foo(int, ...);`—making C++ code match C and clear up confusion, especially with parameter packs. Tools will help update old code, and the change won’t break anything right away.
+
+Most developers like the change, saying it makes C++ clearer and tidies up old mistakes. Some laugh that the “Oxford comma” has come to C++. Others say it will help mixed C/C++ projects. Overall, it’s a small but welcome improvement.
+
+Next, we talk about robotics. Researchers taught a humanoid robot to play tennis using only small pieces of imperfect human motion data, not full recordings. Their system, called LATENT, lets the robot learn basic tennis moves and put them together to hit balls naturally. The robot was tested on a Unitree G1 and could rally with people and move around the court.
+
+Hacker News readers are impressed that the robot can play tennis at all, and like that it learns realistic movement. Some wonder how well the skills transfer from simulation to the real world. Others hope this approach will help robots learn other sports or tasks. Many are excited about the progress in sports AI and robotics.
+
+Finally, we have a tribute to John W. Addison Jr., a logic professor at UC Berkeley who passed away at 96. Former student Bill Wadge shared how Addison’s teaching and mentorship shaped his career. Addison was known for his precise style, helpful advice, and for connecting students with great thinkers. Many Hacker News users shared their own stories about good teachers and the importance of supportive mentors in science and tech. Some discussed the links between logic, math, and programming, and how lasting these lessons can be.
+
+That’s all for today’s episode. We covered new tools for browser debugging and Go code, the problem of web bloat, hardware advances, robot tennis, language updates, creative window managers, and the value of great mentors. Thank you for listening to Hacker News Daily Podcast. See you next time.
