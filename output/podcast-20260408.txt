@@ -1,0 +1,45 @@
+Hello everyone, this is the 2026-04-08 episode of Hacker News Daily Podcast. Today, we bring you news and stories about hacking old hardware, smart tools for developers, updates from open-source projects, and even a classic science fiction story. Let’s get started.
+
+First, a developer has made Mac OS X 10.0, also known as Cheetah, run on the Nintendo Wii. This is not just a simple port, but a deep hack. Both the Wii and old Macs use PowerPC CPUs, which helped make this project possible. The Wii has less RAM than Macs from that time, but still enough for Cheetah. The real challenge was that the Wii’s hardware is very different. The developer had to write new drivers for things like USB, SD cards, and video output.
+
+Because the Wii does not have the same boot system as Macs, the developer wrote a new bootloader. This bootloader starts the hardware, loads the Mac OS X kernel from the SD card, and passes the needed information. To see if the kernel was running, the developer patched the kernel to turn on a light on the Wii—a clever trick. He also had to hard-code a device tree for the Wii, patch the kernel for the Wii’s memory layout, and fight with USB code that expected Mac hardware. After much work and help from people on IRC, he got keyboard and mouse support working.
+
+The bootloader was improved so users can pick which partition to boot, and drivers can be loaded from disk without changing the kernel. The end result is a Wii that boots Mac OS X, shows the desktop, and lets you use the keyboard and mouse.
+
+Hacker News readers are amazed. Many call this a true example of hacking for fun, showing real curiosity and skill. People discuss the hard work of writing drivers for old hardware, share their own hacking stories, and debate the legal side of running Mac OS X on non-Apple devices. Some wonder if newer versions or other consoles could be hacked in the same way. Others just enjoy the creative use of old hardware and the nostalgia of both Mac OS X Cheetah and the Wii.
+
+Next, there’s a new website called “Is Hormuz Open Yet?” The Strait of Hormuz is a very important waterway in the Middle East, used by many countries to ship oil and goods. If this strait is closed, oil prices and world trade could be affected. The website is simple: it just shows if the strait is open or closed. People like how fast and clear the answer is, without needing to read long news articles. Some joke that it’s a “one-bit website,” showing just “yes” or “no.” There’s talk about the technical design, like use of shadow DOM, and some worry that the site must be updated quickly in a crisis. Users also discuss the big impact a closure could have on the world, and some say simple websites like this are getting more popular because people are tired of complex web pages. Many remind others to check news from many sources, since the situation can change fast.
+
+For software developers, there’s a helpful article on writing USB drivers in userspace, without touching kernel code. The author uses an Android phone in bootloader mode as an example, showing how to use the libusb library. You can detect devices, send commands, and read responses, all from user space. The article explains USB concepts like endpoints, descriptors, and protocols, with real code examples.
+
+Many readers say this is a great beginner’s guide. Some share their own struggles with USB, and say learning the basics helped fix tricky problems. Others warn that things get harder with complex devices, and that libusb is easier to use on Linux than Windows. Some suggest tools like Zadig for Windows. Most agree that writing drivers in userspace is safer, and the main point is: USB is not as scary as it seems if you take it step by step.
+
+Another article shares five Git commands the author uses before reading code in a new project. The commands help find the most changed files, see who made the most commits, check for bug hotspots, look at commit activity, and spot emergency fixes. These commands help you understand risks and team health before you dive into the code.
+
+Comments are positive, with people saying these tips are practical. Some warn that the commands do not work well if the team squashes commits or writes bad messages. Others discuss extra ways to analyze a project, and say that numbers are useful, but only a first step to understanding a codebase.
+
+There’s also a clear article about the Kalman Filter, a tool for predicting and estimating things, like tracking an airplane with radar even when the data is noisy. The article uses a simple example to show how the filter mixes prediction and new measurements to get a better guess. It explains the math, and gives links for more learning.
+
+Many readers are happy to see the filter explained without too much math. Some share how they use Kalman Filters for drones, games, or tracking. Others say real-world problems are often harder, and you may need more advanced filters. Still, most agree the Kalman Filter is popular because it’s simple and fast.
+
+Meta has announced Muse Spark, a new AI model that works across images, text, and tasks. It can answer questions, help with health advice, and even build step-by-step guides or mini-games. Muse Spark uses less computing power than earlier models, and has a special “Contemplating mode” where several AI agents work together to solve harder problems. Meta says the model is tested for safety, and refuses risky requests.
+
+The comments are mixed. Some are excited about a personal AI that can understand images and tasks. Others worry about privacy and data use. Some want to know if the technical features will be open to the public. There’s debate on how safe and open the AI really is, and if Meta’s control could cause bias. Many compare it to other big AI models, and some hope it will help with real problems, but most agree we should watch how these tools are used and who controls them.
+
+Swift is now available in more code editors, thanks to its extension being in the Open VSX Registry. Now you can use Swift in editors like Cursor, VSCodium, AWS Kiro, and Google Antigravity, not just Xcode or VS Code. The extension uses the Language Server Protocol, giving you code completion, refactoring, debugging, and test explorer features. This makes Swift more open and easier to use outside the Apple world.
+
+Hacker News users are happy to see Swift in more editors, especially on Linux and Windows. Some hope for even better support and more plugins. There’s talk about using Swift for server-side projects and about debugging quality compared to Xcode. Overall, people are positive and think this will help Swift grow.
+
+We also have a classic science fiction story, “They’re Made Out of Meat,” by Terry Bisson. The story is a funny conversation between two aliens who cannot believe that humans are made only of meat, but can think and talk. They decide to ignore humans, finding us too strange.
+
+Readers call this a classic, saying it makes them think about consciousness and what it means to be alive. Some say the story is a clever way to flip the usual alien story, and others use it in school to spark big questions. Many just enjoy the twist and the simple, clever writing.
+
+An interesting technical article shows how someone imported the full history of the Linux kernel into a PostgreSQL database using a tool called pgit. The Linux kernel has over 1.4 million commits and 38,000 contributors. The import took about two hours on a powerful server. With the data in SQL, you can ask new questions about code history, like which files change together, who does most merges, or which companies sponsor the most work.
+
+Many people are impressed by the scale of this project. Some like being able to use SQL to explore code history, while others think git’s native format is still better for daily work. There’s debate about the trade-offs, but most see it as a cool experiment for code analysis and learning.
+
+Lastly, the VeraCrypt project has a problem: Microsoft suddenly closed the developer’s account used to sign drivers and the bootloader for Windows. Without a valid signature, most Windows users cannot install new VeraCrypt versions, especially with Secure Boot. The project lead got no warning, and so far, all attempts to contact Microsoft have failed.
+
+The community is worried, since VeraCrypt is important for privacy and security. Some offer advice—try official recovery links, contact Microsoft support, reach out to security experts, or even lawmakers. Others think it might be a technical problem, not a policy change. Many hope that with enough attention and the right contacts, the problem can be solved so VeraCrypt can continue to protect user data.
+
+That’s all for today’s episode. Thanks for listening to Hacker News Daily Podcast. We hope you enjoyed these stories and insights from the tech world. See you next time.
