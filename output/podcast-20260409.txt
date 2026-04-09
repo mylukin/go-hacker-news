@@ -1,0 +1,57 @@
+Hello everyone, this is the 2026-04-09 episode of Hacker News Daily Podcast. Today, we have a wide range of topics: from faster Mac desktop switching, cloud storage “dark patterns,” and AI watermark hacking, to fun with Unicode, retro hardware, smarter code agents, and more. Let’s dive in.
+
+First, many Mac users are frustrated by how slow it is to switch between spaces, or desktops, in MacOS. The problem is that Apple forces you to watch an animation every time you switch spaces, and there is no official way to turn it off. The usual advice—like turning on “Reduce Motion”—only swaps the animation for another one, and can even break how websites look. Some people use yabai, a tiling window manager, but that needs you to change Mac security settings and learn a new system. Other apps like FlashSpace or AeroSpace feel too heavy just to remove an animation. BetterTouchTool can do instant switching, but it’s not free.
+
+The article introduces a new free tool, InstantSpaceSwitcher, found on GitHub. This app lives in your menu bar and works by faking a super-fast swipe gesture to switch spaces instantly. You don’t need to change any security settings. You can jump to any space by number and use it from the command line. The install is simple—clone, build, and go. The creator hopes more people will try it, since right now it only has one GitHub star.
+
+Many Hacker News users feel the same pain and want Apple to offer a simple switch to disable the animation. Some use yabai or other tools but worry about security risks or updates breaking things. A few say the animation is for clarity, but most just find it slow. Several plan to try InstantSpaceSwitcher. Some discuss how it works and wonder if future MacOS updates will break it. Overall, users want more control and less waiting.
+
+Next, a programmer helped a neighbor who could not get email in Outlook because Microsoft said he had “run out of storage.” Windows was saving desktop files to OneDrive by default, using up the free 5GB—even though the neighbor barely used email. He didn’t even know his files were being sent to OneDrive. When storage filled up, Outlook stopped working, asking him to pay for more space. He tried deleting files, including family photos, not knowing it might not help.
+
+The author calls this a “dark pattern”—Microsoft tries to push users into buying more storage, but the system hides what’s happening and doesn’t ask for clear permission. To fix it, the programmer backed up all the files, moved them back to the computer, deleted OneDrive files, and removed OneDrive with a tool called WinUtil. Outlook worked again.
+
+Many commenters agree Microsoft made things too complex and hid important settings. Some feel upset that big tech companies use tricks to make more money. Others say cloud storage can be useful, but only if users know what’s going on. Some blame users for not learning more, but most think computers should not trick people who just want email or to keep photos safe. Many shared their own stories of lost files or confusing storage limits. There is a clear call for more honest design and for respecting user choices.
+
+Now, let’s talk about SynthID, Google Gemini’s invisible watermark for AI images. A new project reverse-engineered SynthID, showing how the watermark is hidden and building tools to detect and remove it.
+
+The author used signal processing to find that SynthID hides special frequencies in the image, and these change with image size. By collecting lots of black and white images, they built a “codebook” of watermark fingerprints for each size. Their detector finds SynthID watermarks with about 90% accuracy. They also made a removal tool—which they call a “bypass”—that removes the watermark without hurting image quality. The best version works across many image sizes and keeps the image looking almost the same.
+
+The watermark is strongest in the green channel, and its timing is always the same for each model. Simple tricks like JPEG compression or noise don’t remove the watermark well, but their method does. The author hopes others will help by adding more images to the codebook.
+
+Hacker News commenters are impressed by the technical depth. Some praise the project, while others debate the ethics: is it good to break watermarks, or will this help people hide AI images? Some discuss the limits of watermarking—if you want it to survive editing, it’s hard to keep it invisible; if it’s easy to remove, it’s less useful. There is talk of a “cat and mouse” game between watermarks and bypass tools. Many agree that digital watermarks should not be fully trusted to prove where an image came from.
+
+Now for something fun: Charcuterie is a website that lets you find Unicode symbols—like emojis and arrows—by how they look, not just by name. Click a symbol to see its name, code, and group. The site uses special technology to compare the shapes of characters, turning each glyph into vectors and finding similar ones.
+
+Charcuterie is still being developed, and the creator asks for feedback and support. People on Hacker News love the idea, saying it’s useful for finding “that one symbol” when you don’t know its name. Some talk about the technical side and whether machine learning is used. Others suggest searching by drawing a shape or filtering by language. There’s praise for the simple design, and many encourage the developer to keep going.
+
+Next, the picoZ80 brings new life to old Z80 computers. It’s a hardware board that fits into the old Z80 CPU socket and gives retro computers more speed, memory, and features like WiFi and virtual disks.
+
+The picoZ80 uses a Raspberry Pi chip and an ESP32 chip for WiFi and Bluetooth. One core emulates the Z80, while the other manages USB, files, and connects to the ESP32. You can control everything from a web interface, update firmware, and switch between different computer “personas.” It has lots of RAM and flash, and can emulate floppy disks by loading images from an SD card. All settings are in a config file—no need to rebuild software.
+
+The hardware is open source for personal use. Many commenters are excited about giving retro computers new power. Some love the web interface and cycle-accurate timing. Others ask about compatibility with different Z80 machines, or wonder if similar boards could be built for other CPUs like the 6502. There are questions about licensing and technical details, but most feel this is a clever way to mix new and old tech.
+
+Now, let’s talk about Hegel, a tool and protocol for property-based testing, or PBT. It builds on top of Hypothesis and works with languages like Rust and Go. The main idea is to describe how your code should behave, then let the tool create random test cases to try to break it. If it finds a problem, you get an example to fix.
+
+Hegel offers a standard protocol, so you can write a test once and run it across different languages. It comes with guides and is open source. Commenters are excited for a universal PBT protocol, saying it could help teams working in many languages. Some ask about ease of use and compatibility with older tests. There’s talk about the power of PBT, but also that it can be hard to write good properties. Good documentation is seen as key. The overall response is positive, but some want to see it used in real projects.
+
+Next, we have an article on coding agents—AI tools that can change and improve code by themselves. The main lesson is that these agents work much better if they first do a “research phase,” reading papers and checking other projects, before changing code.
+
+The team tested this idea on llama.cpp, a program for running language models on CPUs. They let the agent read about similar projects and research papers before making any changes. In three hours, the agent made five optimizations, making text generation 15% faster on Intel/AMD, and 5% faster on ARM chips. Most experiments did not work, but the successful ones came from looking at other projects’ code.
+
+Hacker News readers like the idea of a research phase, saying it makes agents more like real engineers. Some warn that not all codebases have easy wins left. There’s talk about the limits of AI agents, and that human review is still needed. Many are interested in trying this method on their own projects.
+
+Unfolder is a Mac app for turning 3D models into flat, printable pieces for papercraft. It unfolds 3D shapes into 2D parts you can print, cut, and glue together. The app uses a smart algorithm and lets you edit pieces or flaps for easy assembly. You can change the style of lines, export in different formats, and use Unfolder for free or buy it.
+
+Hacker News users like how easy Unfolder makes papercraft, with some comparing it to tools like Pepakura on other systems. Some hope for versions on Windows or Linux. There’s talk about the fair price and creative uses for papercraft models. Overall, people find Unfolder helpful for hobbyists and designers.
+
+A new service now lets you send your old laptop to a data center, where they run it as a server for you. For €7 per month, they provide colocation, an IPv4 address, security, and remote access. You mail them your laptop, and they handle setup, power, and even battery removal for safety. The service is based in Amsterdam and uses Hetzner data centers.
+
+Some users like the idea for giving old laptops a second life and saving money. Others worry laptops are not made for 24/7 use and might break quickly. There are concerns about speed, cooling, and security. Some think it’s a fun project for learning, but risky for serious business. The community is split—some see it as clever and eco-friendly, others see too many risks.
+
+Finally, technology is helping to find illegal images of child abuse (CSAM) without humans looking at every picture. The main tool is perceptual hashing, which turns an image into a short code that cannot be reversed, then checks it against a list of known illegal images. This protects privacy while catching bad images.
+
+Hashing works well for images already found and reported, but cannot catch new or AI-generated images. For those, machine learning classifiers are used, but they are less accurate and can raise privacy worries. For videos, special systems make fingerprints for whole files.
+
+Readers praised the privacy-preserving tech and scale. Many worry that AI-generated images will make the problem worse. Some stress the risk of false positives—innocent people could get flagged. There are also concerns about attackers making images that match known hashes on purpose. Some suggest better tools for investigators, but overall, everyone agrees both privacy and child safety are important, and tech is only part of the solution.
+
+That’s all for today’s episode. Thank you for listening to Hacker News Daily Podcast. We’ll be back tomorrow with more stories from the world of technology, software, and the internet. See you next time!
