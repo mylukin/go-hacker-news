@@ -1,0 +1,71 @@
+Hello everyone, this is the 2026-04-17 episode of Hacker News Daily Podcast. Today, we have a rich set of stories for software developers and tech fans. Let’s get started.
+
+First, Anthropic has released Claude Design, a new AI tool for making visual content like designs, slides, and prototypes. This tool uses Anthropic’s latest model and is open to paid users. The goal is to help both experts and beginners create and change designs just by describing what they want. You can start by telling Claude your idea, and it will give you a first draft. After that, you can change the design by chatting, editing comments, moving things directly, or adjusting sliders. Claude can also use your company’s colors and style if you give access.
+
+Teams are already using Claude Design for many jobs—prototypes, wireframes, pitch decks, marketing images, and also more advanced things like 3D or voice-powered designs. You can upload files, let Claude read your code and design files, and export your work as PDF, PowerPoint, Canva, or HTML. When you finish, Claude can even prepare a package for developers, turning the design into code.
+
+Claude Design works well with other tools like Canva, and more integrations are coming. Some teams say it changes weeks of work into one meeting. Others say it makes hard things, like interactive prototypes, much easier.
+
+In the Hacker News comments, some people are excited because this tool may help designers and non-designers work together much faster. Others are not sure the AI can really understand complex design needs or match real company styles, and they wonder if the results will look as good as a human designer’s work. Some worry about jobs for designers if AI tools like this get too good. There are also questions about privacy and security, since Claude reads your code and design files. Some users want to see more real use cases before deciding. But many are happy to see tools that connect design and code, and hope it will make teams work faster and with less waste.
+
+Next, let’s talk about Claude 4.7’s new tokenizer. An article looks at how it costs more to use this new tokenizer compared to Claude 4.6. Anthropic said the new tokenizer would use about 1.0 to 1.35 times as many tokens. But the author tested real files and found Claude 4.7 often uses up to 1.47 times more tokens for technical documents, and about 1.45 times more for markdown files. That means your token limit is reached faster, and each prompt costs more even if the price per token is the same.
+
+The author ran tests with both real and synthetic content. For English and code, the new tokenizer uses about 1.3 to 1.45 times more tokens. For Chinese and Japanese, usage barely changed. Anthropic says this change helps the model follow instructions more closely. Tests show that Claude 4.7 does better at following strict prompts, but only by about 5%.
+
+The cost, however, goes up 20–30% for long coding sessions. This also affects prompt caching, since more tokens are used when reading and writing caches. Some readers say, if you hit cache most of the time, the real dollar cost may not change much, but people with strict token quotas will use up their limits faster.
+
+Some commenters think the small boost in instruction following is worth the higher cost, but others say it is too small and wish Anthropic had been clearer about real-world cost increases, especially for code-heavy work. There’s some frustration that coding work is hit hardest. But many agree that it’s important to measure real-world impact and not just trust the docs. Some plan to change their workflows, while others worry that higher token use may become a bigger problem if this trend continues.
+
+Now, to a story from space. The article explains that all twelve Apollo astronauts who walked on the Moon had “lunar hay fever” after breathing Moon dust. Their throats were sore and their eyes watered. Lunar dust is sharp and toxic, made of silicate, like the dust miners face on Earth, but even worse. The dust is spiky, almost like tiny glass pieces, and sticks to everything. In low gravity, it floats around longer, making it easy to breathe in. The Apollo astronauts found it everywhere, and it even smelled like burnt gunpowder. Some of their symptoms lasted days.
+
+Scientists worry because, on Earth, dust is slowly cleaned away, but not on the Moon. Sunlight also charges the dust, making it float into machines and lungs. Tests with fake Moon dust show it can destroy lung and brain cells after long exposure. But Moon dust could also be helpful—it can be used to make bricks or get oxygen for explorers.
+
+In the comments, people are surprised at how harmful Moon dust is. Some say the Apollo missions were lucky not to have bigger problems. Others say future Moon trips will need better suits and air filters. There are worries about keeping Moon bases clean, and even about electronics getting damaged by dust. Some are hopeful about making bricks and oxygen, but most agree safety must come first. Understanding Moon dust is key before people can live there for a long time.
+
+Next story—coding without AI. A software engineer spent three months at the Recurse Center in Brooklyn, coding by hand, not using AI tools. They had worked at a company building AI agents, but noticed that using AI for coding made it easy to finish tasks, yet hard to really understand the codebase. They felt less connected to their code and realized manual coding is important for deep learning.
+
+At the Recurse Center, they set three goals: train an LLM from scratch, improve Python skills, and learn more about how computers work. They did hard assignments, built neural networks in PyTorch, and worked on real datasets, all by hand. They also practiced with Unix security games, old computers, and gave tech talks.
+
+Hacker News comments praised the idea of coding without AI to really learn. Some said AI can make you lazy or less careful. Others said AI tools help you finish work fast, but it’s easy to become too dependent. Some worry new programmers will never learn deep skills if they always use AI. Many liked the mix of pair programming and self-study. Some thought balancing AI and manual coding is best. Overall, people agree that making time to learn deeply is important, even if it feels slower.
+
+Moving on, Fil-C is a new system to make C and C++ programs memory safe by changing how pointers work. Fil-C adds extra checks and uses a garbage collector. Every pointer variable gets an AllocationRecord, which keeps track of memory details. When you use or move pointers, AllocationRecords move with them. Fil-C replaces malloc and free with special versions, and when you use pointers, Fil-C checks memory safety every time.
+
+A garbage collector cleans up unused AllocationRecords, so if you forget to free memory, Fil-C handles it. For complex cases, like using local variables after their normal lifetime, Fil-C can move them to the heap. Standard functions like memmove are handled carefully to keep both visible and hidden pointer data safe.
+
+Fil-C also adds checks for threads and function pointers. There are ideas to make it faster or use less memory, but safety is the main goal. Fil-C is useful for old C/C++ code, for catching memory bugs, or for safe compile-time evaluation.
+
+Comments liked the clear explanation of how Fil-C works. Some worry about performance costs, since all the extra checks and the garbage collector can slow programs down. Others point out that this makes C/C++ feel more like Java or Go, and wonder if it’s better to just use those languages. Some like that Fil-C can catch bugs better than tools like AddressSanitizer. There are questions about how well Fil-C works with tricky C/C++ features, and if it can fit into existing code. Some think it could be good for teaching memory safety.
+
+Now, let’s talk about smolvm, a new command-line tool for building and running small, fast, and portable Linux virtual machines on macOS and Linux. Smolvm gives you strong hardware isolation for any program, with very quick startup—under 200 milliseconds. You can pack a whole VM into a single file to move between systems.
+
+With smolvm, you can run programs in a real VM separated from your main system. There’s no network by default, but you can allow it for trusted tasks, or limit it to certain hosts for safety. You can build portable executables, like packing Python into a single binary. VMs can be persistent, so you keep your environment between restarts. Smolvm supports describing environments in a simple TOML config file, making setups easy to repeat and share.
+
+Technically, each VM gets its own kernel using Hypervisor.framework on macOS or KVM on Linux. Smolvm uses libkrun and a custom kernel for speed and isolation. You can set CPU and memory limits. Compared to containers or other VMs, smolvm tries to combine speed, isolation, and portability, with good support for macOS and an SDK for other tools.
+
+People in the comments are excited about how fast and portable smolvm is. Some like the better isolation than containers. Others think being able to pack and move machines as single files is very useful. There is interest in using smolvm for CI/CD, running untrusted code, or teaching. Some users want Windows support or GUI apps, and others point out possible limits, but most see smolvm as a helpful new tool for developers.
+
+Let’s turn to a classic sci-fi story. The article is about “The Last Question” by Isaac Asimov. In the story, people keep asking a powerful computer how to stop the universe from running down, or how to reverse entropy. The first time, engineers ask the question in 2061. The computer, Multivac, says there is not enough data.
+
+As time passes, humans spread to other planets and galaxies, and smarter computers—Microvac, Galactic AC, Universal AC, Cosmic AC—are built. But whenever the question comes up, the answer is always the same: not enough data for a meaningful answer.
+
+In the end, after all stars are gone, only the last computer, AC, is left. It finally finds the answer, but there is no one to tell. So, it creates a new universe, saying, “Let there be light!”
+
+On Hacker News, people praised this story as one of Asimov’s best. Some liked its mix of science and hope, and how it makes you think about time, life, and technology. Some discussed if the idea of reversing entropy is possible, or just fantasy. Others liked the ending, which connects science and religion. Many said the story makes them think about their own place in the universe and the importance of always asking questions.
+
+Next, we have a job post from the Arc Prize Foundation. They are looking for a senior platform engineer to lead work on their AI benchmark system, ARC-AGI-4. This is a remote, full-time job in the US. The engineer will own the backend for testing AI models, making sure it’s reliable and fast. They will build tools to automate tests, record scores, and allow deep analysis of model performance. The engineer will help roll out new features for ARC-AGI-4 and lay the groundwork for the future ARC-AGI-5.
+
+The ideal candidate has strong Python and backend skills, knows distributed systems, SQL databases, cloud services, and has worked with AI or machine learning systems. The Arc Prize Foundation is a small team in YC’s W26 batch. Their goal is to build fair benchmarks for general intelligence and inspire new AI research.
+
+In the comments, people are interested in the mission and ask about the benchmarks. Some wonder if it’s possible to really measure general intelligence, or if it’s too early. A few discuss the high salary and if it matches the responsibility. Some think the job is exciting but could be high-pressure in a small, fast-moving team. There are comments about the need for reproducible AI testing, and people share ideas on how to build good benchmarks. Overall, most comments are positive but realistic about the challenges.
+
+Now, let’s look at NASA Force, a new program to hire talented engineers and technologists for real NASA missions. The program gives early- and mid-career people a chance to work at NASA for 1–2 years, helping with spaceflight, aeronautics, and science projects. People will work on things like lunar infrastructure, deep space logistics, and AI for air traffic control. The work is hands-on and important, letting new people help with big missions like Artemis or the VIPER lunar rover. The jobs are short-term, with only a few spots, making it a special chance.
+
+Hacker News comments say this is a smart way for NASA to get new talent quickly. Some wonder if short jobs are a problem, since NASA projects last many years. Others ask about pay, since private tech jobs pay more. Some are excited about the chance to work on real space missions, but worry if newcomers will do only small tasks. Many like that NASA is trying new ways to hire. Some hope this will make NASA more modern and flexible, while others worry about the effect on long-term staff. Overall, many support the idea of opening NASA to more people.
+
+Finally, a fun story from Berlin. A 13-year-old found a very old coin from Troy, now in a museum and the first Greek antiquity found in the city. The coin was made between 281 and 261 B.C., shows Athena on both sides, and was likely a charm or ritual item, not valuable money.
+
+Archaeologists checked the site and found items from many times—Bronze Age, Iron Age, Roman, and medieval. This suggests the coin arrived in Berlin a long time ago, maybe through ancient trade routes like the Amber Road. The coin’s low value means it was probably a souvenir or offering, not part of a big trade.
+
+In the comments, one person explains that Ilion is the Greek name for Troy and connects it to the Hittite name Wilusa. The Romans liked the story of Troy and said their hero Aeneas came from there. Other comments discuss how ancient items can travel far and how trade and travel worked in the past. There is excitement that a young person made such a find, and hope that more discoveries will help us understand ancient trade.
+
+That’s all for today’s episode. Thank you for listening to Hacker News Daily Podcast. We hope you enjoyed these stories and insights from the world of technology, science, and history. See you next time!
