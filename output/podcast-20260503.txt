@@ -1,0 +1,57 @@
+Hello everyone, this is the 2026-05-03 episode of Hacker News Daily Podcast. Today, we bring you the latest stories from the world of tech, hardware, science, security, and art, along with the most interesting comments from the community.
+
+First, let’s talk about BYOMesh, a newly announced hardware device for LoRa mesh radio networks. This small board combines two chips: the SX1276 for sub-1GHz LoRa and the SX1281 for high-speed 2.4GHz LoRa. The creators say it is the smallest and most powerful LoRa board so far, offering up to 100 times more bandwidth than before. This could help people send much more data over long distances, like between mountaintops. The device is still being finished, but early tests using software-defined radio show much higher speeds are possible, all without WiFi or complex systems. The team believes BYOMesh is great for mesh networks, where many radios connect together, and will be useful for hobbyists and anyone interested in building their own networks.
+
+In the comments, users were excited about the higher speeds, but had many questions. Some wanted to know if the board comes with an antenna, or if one antenna can cover both bands. Others compared 2.4GHz LoRa to WiFi HaLow, saying LoRa is slower but works much farther. There was also interest in whether BYOMesh is a good starting point for projects like Meshtastic. While most people were excited to try BYOMesh, they also wanted more details about antennas, speed, and real-world use cases.
+
+Next, we move to a different kind of network—air travel. An article gave a guided tour of Southwest Airlines’ headquarters in Dallas, showing how the company trains staff, runs flights, and keeps planes safe. The tour started at the LEAD Center, where flight attendants practice not just customer service but also emergency skills. Pilots train in flight simulators costing over $14 million each, with strict rules like putting on an oxygen mask in eight seconds. Only 6% of Southwest pilots are women, and the company hopes to improve this.
+
+After a free lunch in the cafeteria, the group visited the Southwest store, met the social media team, and toured the Network Operations Center—the airline’s “brain”—where experts handle flight schedules and weather for 4,000 flights a day. They saw “The Baker,” a tool to optimize schedules. The tour continued to the TechOps hangar, where mechanics maintain the world’s largest fleet of Boeing 737s. The group even visited the offices of Southwest’s famous leaders and the Listening Center, where staff track social media.
+
+In the comments, people were impressed by the behind-the-scenes look. Many learned about the work needed to run flights smoothly and keep them safe. Some were surprised by the tough training for flight attendants and pilots. Others talked about the low number of women pilots and shared ideas to improve this. There were also questions about the tech tools used, and many praised Southwest’s unique and fun culture.
+
+Now, let’s turn to medicine and AI. A new Harvard study tested OpenAI’s o1 AI against human triage doctors in the emergency room. The AI diagnosed patients correctly 67% of the time, compared to 50–55% for doctors. When given more health details, the AI’s accuracy rose to 82%, higher than the doctors’ 70–79%. The AI was also better at making long-term treatment plans. In one case, the AI spotted a rare cause for a lung problem that doctors missed.
+
+But the study’s authors say AI will not replace doctors. The AI only saw text records, not things like patient distress or appearance. It worked more as a second opinion. Many doctors already use AI for help, but there are worries about mistakes and responsibility when AI is wrong. Patients may still want a human doctor for big health choices.
+
+Hacker News users were hopeful but cautious. Some said AI could make emergency care faster and safer, while others warned about new kinds of mistakes. Doctors in the comments said AI can help, but real care needs a human touch. There were concerns about bias, and many agreed that AI should support, not replace, doctors.
+
+Switching to space, we have news from the US–Indian NISAR mission, which used radar to measure how much Mexico City is sinking. Built on an old lakebed, the city loses ground every year because too much groundwater is pumped out. NISAR’s radar can see small changes even through clouds or at night. Some parts of the city sank more than two centimeters per month between October 2025 and January 2026. Over the years, this has broken roads and buildings—one famous statue now has 14 extra steps due to sinking.
+
+Scientists have watched Mexico City sink for nearly a century, but NISAR can check much more often and in more places. The radar is also useful for monitoring other cities and areas at risk from sinking and rising sea levels. The mission is a big step for NASA and India’s space agency.
+
+Commenters were shocked by how fast the city is sinking, and many discussed similar problems in other cities. Some were impressed by the radar technology, while others wondered if this new data will encourage better city planning. There were stories from people who noticed uneven streets during visits, and many agreed that sharing this data could help push for smarter water use around the world.
+
+Next, let’s talk about software design. One article explained why Terminal User Interfaces, or TUIs, are making a comeback. Many native GUI apps on Windows, Linux, and macOS have become less useful and less consistent. Electron apps are popular, but use a lot of memory and don’t feel like part of the system. New toolkits like Flutter or custom GPU renderers also do not fit well with the OS.
+
+TUIs are fast, easy to automate, and work on almost every system. They are especially useful now that desktop apps have become less consistent. The author says developers should focus on making UIs simple and easy to use.
+
+Hacker News comments showed agreement. Many miss the old days of consistent apps and like TUIs for their keyboard support and scripting. Some pointed out TUIs can be hard for beginners, and some tasks still need GUIs. There was also much discussion about Electron apps and the challenges of making cross-platform software. Many hope for better tools in the future and are glad to see TUIs getting attention again.
+
+Related to this, another article told the story of someone who built a whole desktop environment for himself, replacing almost every tool with software he wrote. He used assembly for the low-level graphics layer and Rust for apps like his text editor and file manager. He replaced vim with his own editor, scribe, in just three days, making it simpler and easier to change. He still uses Firefox and WeeChat, but all other tools are his own.
+
+He says building your own tools is now easier, thanks to better languages, AI, and online guides. While he does not expect others to use his tools, he enjoys the freedom and learning that comes from building just for himself.
+
+In the comments, many were inspired and wanted to try making their own tools. Some worried about the time and effort needed, or about maintaining custom software. Others shared their own stories of making small tools for daily work, and agreed that even small changes can make a big difference in happiness.
+
+Now, let’s move to art and public space. Banksy, the famous street artist, put up a surprise statue in central London. The bronze statue shows a man with his eyes covered by the British flag, standing with his head bowed, placed near the Houses of Parliament. The statue is seen as a message about being “blinded” by patriotism or ignoring problems in society. It was not approved by the city before it appeared, which is typical for Banksy.
+
+People stopped to look and take photos, and the statue quickly became popular online. In the comments, some liked the message and the smart way it shows problems in the country. Others thought it was just another Banksy stunt, or that the message was too simple. There was also talk about whether the statue would be removed soon, and jokes about how long it would take before it is sold for a lot of money.
+
+A second article explained how Banksy and his team installed the statue overnight using a big truck, cones, and a skilled crew. They worked late at night, wearing safety vests and moving fast. The whole job was finished before morning. The city council did not know about the statue, but for now they are letting people visit. The statue is big and hard to move, so it is likely to stay longer than past Banksy works.
+
+Hacker News users enjoyed the story of how the crew worked together, and many were impressed by the planning and surprise. Some wondered why the police did not stop it, and others joked about how art permits are harder to get than ads. Some were not impressed, saying Banksy is repeating himself, but most enjoyed the creativity and message.
+
+Turning to the environment, we have a story about microforests grown using the Miyawaki method. This method, started by Japanese botanist Akira Miyawaki, uses native plants packed close together to grow fast and create habitats quickly. At Horn Farm in Pennsylvania, a 12-foot-wide forest by the road now has trees 30 feet tall after just a few years. Microforests help with flooding, reduce pollution, and bring wildlife back. They use many tree types, which makes the forest healthier and more resilient.
+
+The Miyawaki method is more expensive up front and needs good fences to protect young trees, but it works well in small city spaces and on farms. In Los Angeles, a Miyawaki forest had 51% more types of plants and animals than a regular area nearby after only two years. These forests capture carbon and give people hope, though some worry they are too small to make a big difference.
+
+Hacker News users liked the idea, especially for cities and schools. Some wondered if costs could be lower if more of the work was done by volunteers. There were concerns about long-term care, but many agreed that even small forests help the environment, and that the Miyawaki method brings people together and makes a fast, visible difference.
+
+Finally, let’s look at mobile network security. An article explained how secret groups use global phone networks to track people without their knowledge. Attackers send special messages through old and new network protocols, pretending to be real phone companies, or send hidden SMS commands to SIM cards. These attacks can last for years and are hard to trace because they use many tricks to hide.
+
+Many phone companies do not have strong security, and attackers use their knowledge of telecom rules to blend in. Both governments and commercial groups take part in this kind of spying. Technical fixes are possible, but phone companies are slow to act, and the attacks are hard to stop without global rules.
+
+In the comments, users were shocked at how weak telecom security still is. Some pointed out that regular people cannot protect themselves, since the attacks happen deep in the network. Others discussed technical solutions, but doubted they would be used soon. Many agreed that without stronger rules and better security, hidden surveillance will remain a big problem.
+
+That’s all for today’s episode. Thank you for listening to Hacker News Daily Podcast. We hope you enjoyed the stories and comments from the community. See you next time.
