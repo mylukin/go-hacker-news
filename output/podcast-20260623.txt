@@ -1,0 +1,39 @@
+Hello everyone, this is the 2026-06-23 episode of Hacker News Daily Podcast. Today, we bring you stories about open source software, new technology tools, and a closer look at vitamin D supplements. Let’s get started.
+
+First, let’s talk about FUTO Swipe, a new open-source swipe typing system for Android. Many people use swipe keyboards, but most of the best ones today are either closed-source or collect your data. FUTO Swipe is different. It is fast, accurate, works fully offline, and is designed for privacy.
+
+To build FUTO Swipe, the team collected over one million swipe samples from volunteers. They used this large dataset to train their models, and now, this data is open and free for anyone to use. FUTO Swipe uses three types of models: an encoder that works for any keyboard layout or language, a small language model called ContextLM that looks at word order, and a decoder that is most accurate for English QWERTY layouts. By using all three models together, FUTO Swipe achieves error rates close to the best keyboards from big tech companies, but it runs quickly even on cheap phones.
+
+The team also released a C++ library so developers can use these models in their own apps. The code is open and free under its own license, though some users wish it was even more permissive. The team hopes people will build new features, support more languages, or port it to other platforms like iOS or desktop.
+
+On Hacker News, many commenters are excited about a private, offline swipe keyboard. They like the open dataset and hope it will lead to better keyboards in the future. Some people ask how easy it will be to add support for other languages or layouts, since the best model is for English QWERTY right now. Others discuss license choices and possible limits for commercial apps. Some developers want to bring this to other devices, and many are impressed by the small, fast models that work even on old phones. Overall, the community sees FUTO Swipe as an important step for privacy, open source, and better typing tools.
+
+Next, we have a story about art and technology. An artist used a new 3D printing method to turn a digital insect model into a real object, using something called "Gaussian splats." The process began when someone from crysta.ai offered to print the artist’s digital work.
+
+To prepare the model for printing, the artist used simple color methods since the printer cannot show colors from different angles. The digital data was changed into small cubes called voxels, each with its own color and transparency. The special 3D printer built the object layer by layer using different inks. The final result looks like a crystal or amber with the insect inside, almost like a piece of art from nature.
+
+The artist was happy with the print, but noticed it looked a bit too brown and dark. Some small mistakes, called "splat artifacts," could be seen, and very fine details like fur were hard to make. When you shine light through the model, you can see interesting details inside, almost like organs.
+
+The printing company is still making their tools better. They now have a test editor so users can move and scale models before printing. The artist hopes for better previews and easier ways to use models from other programs.
+
+In the comments, people called the print beautiful and amazing, but also noticed the high price—about $143 for a small cube. Some hope prices will drop as more people use the service. Others want more features and easier use, and hope the process becomes more open and cheaper. Overall, readers are excited about the mix of art and modern 3D printing.
+
+Now, let’s look at the TikZ Editor, a new WYSIWYG tool for making TikZ figures for LaTeX. With this editor, you can open LaTeX files and edit figures by dragging and resizing shapes, without needing to write code by hand. The code updates right away as you edit, and the app keeps your original formatting. It also has tools for snapping, aligning, grouping, and distributing elements, plus rulers and zoom to help you.
+
+The editor supports most TikZ features, including loops, labels, pins, and paths. You can work on many figures at once, and export them in SVG, PNG, PDF, and more. The desktop version even includes an AI assistant if you have OpenAI Codex. The app uses modern code, written in TypeScript and Rust, and is free and open source.
+
+On Hacker News, users are excited about finally having a true graphical editor for TikZ. Many say it will save them a lot of time and keep their code clean. Some compare it to old tools like TikZiT, but say this new app is much more complete. Others are curious how well it works for complex code or big documents. Some want even more features or better privacy for research files. Developers like the use of modern tools and offer ideas for making the app even better. Overall, the response is very positive, and many people are eager to try it for their next paper or project.
+
+Next up is F3, a new open-source tool for testing flash memory like USB drives and SD cards. Fake drives are a problem—they often say they have more space than they really do. F3 helps you find out if your drive is real or fake by writing test files to fill the drive, then reading them back to check for errors. It is fast, simple, and works on Linux and Mac. The tool is free and open source.
+
+Commenters share stories about buying fake drives and losing important files. Many are happy that F3 is easy to use and open source. Some compare it to another tool, H2testw, which works on Windows, and hope for a Windows version of F3. Others warn that fake drives can be dangerous and suggest always testing new drives before using them. The overall feeling is that F3 is a great tool and many are glad it exists.
+
+Finally, we look at an article about vitamin D supplements. For years, people thought vitamin D was a magic pill for health, but new studies now show it only helps if you are low on vitamin D. Vitamin D helps your body use calcium, which keeps your bones strong. You get it from sunlight, food, and supplements.
+
+Many old studies found people with more vitamin D seemed healthier, but newer big tests where people took vitamin D did not show strong benefits. Sometimes, taking vitamin D even caused more kidney stones. One problem is that many people in these studies already had enough vitamin D, and some in the control group still took supplements. The studies did not focus on people who really needed more vitamin D.
+
+The article notes that vitamin D might still help if your levels are low or low-normal. Evolution gives a clue—people living outdoors in Africa have high vitamin D, and lighter skin in northern places helps make more vitamin D with less sun. Taking a small daily pill is cheap, and even a tiny benefit could be worth it. Most people also get some vitamin D from foods like milk and cereal.
+
+In the comments, most readers agree vitamin D is not a magic fix. Some take it "just in case," and a few say they feel better with it. Others say going outside is the best way to get vitamin D, but this is hard for people indoors or far north. Some worry about side effects, but most agree that normal supplements are safe. Many discuss problems with big health studies and say food fortification helps prevent deficiency. Some say, "If vitamin D helps even a little and costs almost nothing, why not take it?" Others reply, "If it does almost nothing, why bother?" In the end, most people are open-minded but not very excited—vitamin D seems helpful only if your levels are low.
+
+That’s all for today’s Hacker News Daily Podcast. Thank you for listening, and see you next time.
