@@ -1,0 +1,81 @@
+Hello everyone, this is the 2026-07-16 episode of Hacker News Daily Podcast. Today, we bring you the latest and most interesting stories from the world of technology, AI, science, and privacy.
+
+First, let’s talk about Kimi K3, a new open AI model with 2.8 trillion parameters. Kimi K3 is the biggest open AI model so far and can handle not just text but also images and videos, all with a very long context window. It’s built using special attention methods and a mixture-of-experts system, which means it has many expert “sub-models” that work together for better performance and easier scaling.
+
+Kimi K3 is especially good at coding, even with big and complex codebases. It can use screenshots, optimize GPU kernels, and even write a GPU compiler from scratch called MiniTriton, which performs as well as other top tools. Kimi K3 can also design 3D games, create digital assets, and even design computer chips on its own. For science tasks, the model reads research papers, checks formulas, writes code, and builds dashboards—work that would normally take a human weeks to finish.
+
+For knowledge work, Kimi K3 can make interactive reports, visualizations, and research presentations. It handles financial and scientific data, edits videos, and explains its own technology with motion graphics. The architecture uses new attention methods and a mixture-of-experts design for better efficiency and stability. While big jobs need many GPUs, Kimi K3 can run on modern hardware with features to keep costs lower. Technical details and the full open-source release are planned for 2026.
+
+Kimi K3 is available on desktop and mobile apps, command-line tools, and an API, with prices and discounts listed. There’s also an enterprise version for organizations needing privacy and management. Benchmarks show Kimi K3 is strong against other models, sometimes winning, and sometimes just behind closed models like Claude Fable 5 or GPT 5.6 Sol.
+
+The article mentions some weaknesses: sometimes Kimi K3 is too proactive, acting without enough user input, and switching models mid-session can lower quality. It’s not quite as polished as the top closed models, but still very competitive.
+
+Hacker News comments are excited about its open nature, size, and technical achievements. People like the transparency and open-source promise. Some are cautious, pointing out that real-world usefulness depends on how easy it is to run, the actual cost, and practical integration. There are questions about how “open” it is until the weights are released, and worries about the high hardware needs. Some users say they want to see independent tests, not just company benchmarks. In general, the community is hopeful Kimi K3 will push open AI forward, but want to see it in action first.
+
+Next, we have LM Studio Bionic, a new AI agent focused on privacy and flexibility for coding, research, and working with documents. Bionic lets you use open-source models locally on your computer or connect to bigger models in the cloud, while keeping your data private.
+
+Bionic helps with coding by reading, explaining, and changing your code step by step. For documents, it can organize files, create new docs and slides, summarize content, and use web search for extra info. It runs in a safe, separate part of your computer to protect your files. There’s a voice keyboard using a local model for fast, private speech-to-text. You can run local models or use cloud ones, but your data is only used for your task and not kept. Bionic is separate from the old LM Studio, so you can use both. Getting started is easy: download, make an account, choose your project, and start.
+
+In the comments, users like Bionic’s privacy-first design and easy switching between local and cloud models. Developers are happy about the voice input. Some worry about setup for beginners and performance on older computers. There are questions about file type support, handling big projects, and cloud pricing. Some people wonder how open the platform really is and if they can add their own models. Overall, the community is interested and waiting to see how Bionic grows.
+
+Now, let’s look back at history. Microsoft has open-sourced Comic Chat, its old chat program that turned conversations into comic panels. First released in 1996, Comic Chat is also known for introducing the Comic Sans font.
+
+Back in the 1990s, most chats were just plain text. Comic Chat made things fun by showing messages as comic strips with cartoon characters showing emotions. It was built by Microsoft Research, with comic art by Jim Woodring, and was released with Internet Explorer 3. The team even wrote a research paper on how the program matched messages to comic poses and layouts.
+
+Microsoft has now released the code on GitHub, with updates to help it run on modern systems and connect to today’s IRC servers. It’s not a finished product, but it is a starting point for hobbyists and fans.
+
+On Hacker News, many people remember Comic Chat fondly, calling it ahead of its time. Some are surprised to learn about the origin of Comic Sans. Others are happy to see Microsoft open-sourcing old software and curious about how Comic Chat understood emotions. Some share stories from their youth, and others hope for modern versions. People like the idea of saving and sharing creative old software, even if just for fun or nostalgia.
+
+Next, we have a story about Decoy Font, a special font that hides what you type from AI programs. This font shows a fake letter up close, but the real, hidden letter appears when you look from far away. It works by mixing two sets of shapes for each letter, using a “hybrid image” technique. Up close, your eyes and AI see the decoy, but from afar, the blur blends to show the real message.
+
+Most AI models, like ChatGPT and Gemini, only see the decoy message in screenshots. People can see both messages, but computers get confused. The font is free and easy to use, based on DejaVu Sans Mono. There’s also a playground online to test it.
+
+Decoy Font is just one of several “anti-AI fonts.” Another from the same group is Ghost Font, which hides messages by moving them in an animation. Decoy Font is easier to use, as you just type with it.
+
+But this is not perfect. Smarter AI models or people who know the trick can still read the hidden message. Still, it can slow down simple AI tools for now. The creator hopes to expand support for more languages, like Chinese.
+
+In the comments, people are impressed by the clever idea and the optical illusion. Some say it’s a temporary fix, as AI will get better. Others worry it’s hard for humans with poor eyesight and for people using screen readers. Some suggest using the font in puzzles or games, while others point out the start of a “cat and mouse” game between font makers and AI researchers. Many agree it’s fun to see creative ways to protect data in the age of AI.
+
+Moving on, there’s a comparison between two new AI models, Claude Fable 5 and GPT-5.6 Sol, making full music videos for "Uptown Funk" with $25 or $100 budgets. The test checked how each model planned, chose tools, and edited videos from just a song, a description, and lyrics.
+
+Both models could search the web, generate images and videos, check spending, and use ffmpeg for editing. All four runs finished and made full-length videos. Each model picked different tools and editing methods. With more money, they made more or longer clips, but didn’t always use all of the budget. Claude Fable 5 used more tokens and finished faster, while GPT-5.6 Sol was cheaper to run.
+
+The videos had problems: no consistent story or characters, faces changed between clips, and actions didn’t fit the music’s energy. Sometimes, lyrics were taken literally, which looked strange. GPT-5.6 Sol at $25 was most creative, adding text and effects, while others just joined clips. No model checked or improved edits once done.
+
+On Hacker News, some users are impressed that AI can make a full music video with little human help. Others say the videos lack the creative touch of humans. People like the open-source process and want to try making their own videos. There’s debate about price—some say it’s too expensive, others think it’s amazing for such a complex job. Some worry about copyright and spam, while others are excited to see tool-use in action. A few want to see results with lower budgets or more creative prompts. Developers praise the detailed logs and transparency. Most agree human editors are still better for now, but AI is improving fast.
+
+Now for some science news. A group of scientists found that a rocky planet outside our solar system is losing helium from its atmosphere. This planet is in the habitable zone, meaning it could have liquid water.
+
+The planet is close to Earth, making it easier to study. Scientists used a telescope to see infrared light from helium, which showed the planet’s atmosphere is leaking helium into space. The planet orbits a small, cool star and is slightly bigger than Earth. Finding helium escaping is important; it means the planet still has some atmosphere, but it’s slowly losing it. If it loses too much, it might not support life. Studying this helps scientists guess how long the atmosphere will last.
+
+In the comments, people are excited about learning if other planets can keep their air and maybe have life. Others point out losing atmosphere is bad for life. There are questions about other gases, how the star’s light affects the air, and whether other planets also lose their atmospheres. Many hope new telescopes will let us watch more planets like this. Most agree this is a good step for learning about worlds outside our solar system.
+
+Next, Google has changed the name of NotebookLM to Gemini Notebook, making it part of the Gemini AI family. The tool now lets you run code inside your notes and connects more deeply with other Google products.
+
+Over 30 million people and 600,000 groups use Gemini Notebook. Running code is first for Pro users, but soon everyone will get it. Notes now sync across the Gemini app and Google Search. Each notebook gets a secure cloud computer. The tool started as Project Tailwind at Google I/O 2023.
+
+In the comments, people like the new features, especially running code. Others worry about privacy, as syncing notes means Google might see your data. Some say the name change is just branding, but the extra integration is helpful. A few wish it was open source or worked better with non-Google products. Some hope for support for more programming languages. Others still prefer simple, offline notebooks to avoid depending on the cloud. There’s excitement about AI helping with study and work, but questions about future pricing. Some users say they’ll wait to see if the new features are really useful before switching.
+
+Another story is about building a tool to detect if a story was written by a large language model like ChatGPT, using older machine learning methods. The author wanted to see if AI fiction could be detected easily.
+
+They first tried text perplexity, but it was unreliable and expensive. So, they used classic machine learning: collecting thousands of human and AI stories, splitting them into sentences, and training a Linear SVC model using TF-IDF features. This simple method gave about 85% accuracy at detecting AI-written sentences.
+
+They trained seven different models (one for each LLM) and used majority voting. They built a web demo that runs in the browser. Tests showed the detector works well, with low false positives for old, human-written stories, and it could flag about a third of popular online fanfics as likely AI-generated.
+
+In the comments, people are impressed such a simple method works well. Some say AI writing is still easy to spot statistically. Others note the limits, as LLMs get better and users try to trick detectors. Some worry about bias and false accusations. Many like the open, browser-based demo and the transparency. There’s debate about whether we should even try to detect AI text, and ethical questions about AI in creative spaces. Most enjoyed the technical breakdown and want to try building similar tools themselves.
+
+Next, an article discusses the math behind data science, based on a new book that covers everything from high-dimensional data and PCA to deep learning and optimization.
+
+The book starts with high-dimensional data, explaining the challenges and benefits. It covers tools like SVD, PCA, linear regression, regularization, graphs, clustering, feature reduction, and optimization. There are also chapters on classification, deep learning, compressive sensing, and low-rank matrix recovery.
+
+In the comments, people are happy to see all this math in one place. Some say it’s great for those wanting to truly understand machine learning, though parts may be hard for beginners. There is debate about how much math is needed for most jobs. Some like the focus on high-dimensional data, and others wish more books explained these ideas as clearly. Many agree it’s good to have as a reference, even if you don’t read every chapter.
+
+Finally, we look at privacy issues in period tracker apps. The Mozilla Foundation checked six popular apps, finding that some share users’ private health data with other companies.
+
+Some apps keep data safe, but others share details like pregnancy status, moods, or symptoms with companies like Google, Meta, TikTok, and others. Stardust, for example, sends data to a partner not listed in its privacy policy. Spot On doesn’t share data, but if you use some features, it opens a website that shares details. Most apps send some user info to ad companies, and sometimes you can’t stop this tracking.
+
+Euki is the most private app, keeping data only on your phone and offering a “decoy” mode. Flo and Clue do not share health data, but still keep it on their servers. Mozilla says app history matters, as some apps had privacy scandals in the past.
+
+In the comments, people are shocked by how much data these apps share. Some say they never trust apps with health data, and others use pen and paper instead. Developers argue it’s possible to build good apps that don’t share data. There’s debate about server storage, legal risks, and calls for better privacy laws. Many are glad Mozilla did this research, but wish more people knew about the risks.
+
+That’s all for today’s episode of Hacker News Daily Podcast. Thank you for listening, and we’ll see you next time.
