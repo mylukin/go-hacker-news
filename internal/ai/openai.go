@@ -38,8 +38,7 @@ func NewOpenAIClient(apiKey, baseURL, model string, maxTokens int, timeoutSecond
 
 // GenerateText generates text using the OpenAI API
 func (c *OpenAIClient) GenerateText(systemPrompt, userPrompt string) (string, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 120*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	// 记录提示词长度
 	logger.Debug("系统提示词长度: %d 字符", len(systemPrompt))
